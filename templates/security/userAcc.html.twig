@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/table/table.css">
+{% endblock %}
+
+{% block body %}
+    
+    <div class="container">
+        <div class="center">
+                <table class="table-file table">
+                    <thead>
+                        <tr>
+                            <th>Formation terminée</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for formation in formations %}
+                        <tr>
+                            <td class="table-cel"><a href="/formation/{{ formation.id }}">{{ formation.title }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div> 
+    </div>
+    <div class="options-logout">
+            <a href="{{ path('security_logout') }}" class="logout">Se deconnecter</a>
+    </div>
+
+{% endblock %}

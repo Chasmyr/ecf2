@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter des fichiers{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/table/table.css">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="center">
+            <h2>Gérer les fichiers annexes</h2>
+        </div>
+        
+        <div class="center">
+            <table class="table-file table">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for annexe in annexesList %}
+                    <tr>
+                        <td class="table-cel">{{ annexe.title }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="center">
+
+            <div class="options"> 
+
+                <div class="add-option">
+                    <a class="create-option" href="{{ path('create_annexe', {id: lesson.id}) }}">Ajouter une annexe</a>
+                </div>
+
+                <div class="return">
+                    <a class="validate-option" href="{{ path('edit_section', {id: section.id}) }}">Valider</a>
+                </div>
+
+            </div>
+
+        </div>
+        
+        
+    </div>
+    
+{% endblock %}

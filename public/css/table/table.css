@@ -1,0 +1,273 @@
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container h2 {
+  font-size: 28px;
+  margin: 20px;
+}
+
+.container .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 900px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .options .add-option {
+  margin-right: 20px;
+}
+
+.container .options .add-option .create-option {
+  background-color: #727272;
+  border-radius: 5px;
+  border: 1px solid #7c7b7b;
+  display: inline-block;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px 15px;
+  text-decoration: none;
+}
+
+.container .options .return .validate-option {
+  background-color: #57d6a9;
+  border-radius: 5px;
+  border: 1px solid #50c59c;
+  display: inline-block;
+  color: black;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px 15px;
+  text-decoration: none;
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 900px;
+  border: 1px solid black;
+}
+
+.table a {
+  text-decoration: none;
+}
+
+.table thead {
+  height: 40px;
+}
+
+.table thead tr {
+  background-color: #474747;
+  color: white;
+  text-align: left;
+  font-size: 22px;
+}
+
+.table thead tr th {
+  text-align: center;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #202020;
+}
+
+.table tbody tr a {
+  color: #202020;
+}
+
+.table tbody tr:nth-of-type(even) {
+  background-color: #727272;
+  color: white;
+}
+
+.table tbody tr:nth-of-type(even) a {
+  color: white;
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: 1px solid #202020;
+}
+
+.table tbody td {
+  text-align: center;
+}
+
+.table tbody .table-cel {
+  font-size: 16px;
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+}
+
+.table .edit {
+  background-color: #57d6a9;
+  border-radius: 5px;
+  border: 1px solid #4db38f;
+  color: #f7f7f2;
+  display: inline-block;
+  cursor: pointer;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
+.options-logout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 25px;
+}
+
+.options-logout .logout {
+  text-decoration: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  color: white;
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background-color: #6495ED;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.options-logout .logout:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  background-color: #5184e2;
+}
+
+.create-formation {
+  margin-left: 20px;
+  text-decoration: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  color: white;
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background-color: #0ea47a;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.create-formation:hover {
+  background-color: #57d6a9;
+  -webkit-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+@media screen and (max-width: 1024px) {
+  .table {
+    width: 800px;
+  }
+  .container .options {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .table {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .center h2 {
+    font-size: 22px;
+  }
+  .table {
+    width: 550px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .table {
+    width: 480px;
+  }
+  .table thead tr {
+    font-size: 18px;
+  }
+  .table tbody .table-cel {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .table {
+    width: 440px;
+  }
+  .container .options {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .container .options .add-option {
+    margin: 0;
+  }
+  .container .options .add-option .create-option {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  .container .options .return {
+    margin-top: 10px;
+  }
+  .container .options .return .validate-option {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  .options-logout {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .options-logout .logout {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  .options-logout .create-formation {
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .center h2 {
+    font-size: 16px;
+  }
+  .table {
+    width: 300px;
+  }
+  .table thead tr {
+    font-size: 16px;
+  }
+}
+/*# sourceMappingURL=table.css.map */

@@ -1,0 +1,296 @@
+.container-1 {
+    background-image: url("/img/homebg.png");
+    background-image: cover;
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .home-title {
+        color: white;
+        font-size: 50px;
+        text-align: center;
+    }
+}
+
+.container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #F7F7F2;
+    .cards {
+        height: 350px;
+        width: 350px;
+        z-index: 1;
+        background-color: #727272;
+        border-radius: 20px;
+        position: relative;
+        top: -175px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .gros-vert {
+            font-size: 120px;
+            color: #57D6A9;
+        }
+        img {
+            height: 80px;
+        }
+        span {
+            color: white;
+            font-size: 30px;
+        }
+    }
+    .card-1, .card-2 {
+        margin-right: 110px;
+    }
+}
+
+.container-3 {
+    background-color: #F7F7F2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    p {
+        text-align: center;
+        font-size: 24px;
+        width: 1100px;
+        margin-bottom: 20px;
+    }
+}
+.container-4-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    h2 {
+        font-size: 28px;
+        text-decoration: underline;
+    }
+}
+.container-4 {
+    margin: 10px 200px 0px 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 40px;
+    margin-top: 50px;
+    article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        img {
+            width: 350px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 2px 6px 8px 2px #707070; 
+            box-shadow: 2px 6px 8px 2px #707070;
+        }
+        h3 {
+            padding-bottom: 10px;
+            text-decoration: underline;
+            text-align: center;
+        }
+        .content {
+            p {
+                text-align: center;
+                width: 300px;
+                height: 120px;
+            }
+        }
+        .formation-btn {
+            background-color:#0ea47a;
+            border-radius:40px;
+            display: inline-block;
+            cursor: pointer;
+            color:#ffffff;
+            font-size: 22px;
+            padding: 12px 35px;
+            text-decoration: none;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            transition: all .7s;
+            &:hover {
+                background-color: #57d6a9;
+                -webkit-transition: background-color 500ms linear;
+                -ms-transition: background-color 500ms linear;
+                transition: background-color 500ms linear;
+            }
+        }
+        .formation-title {
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            margin-top: 10px;
+        }
+    }  
+}
+@media screen and (max-width: 1366px){
+    .container-4 {
+        margin: 20px 0px;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .container-2 {
+        .card-1, .card-2 {
+            margin-right: 70px;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .home-title {
+        h1, h2 {
+            font-size: 48px;
+        }
+    }
+    .container-2 {
+        .card-1, .card-2 {
+            margin-right: 50px;
+        }
+        .cards {
+            height: 250px;
+            width: 250px;
+            .gros-vert {
+                font-size: 90px;
+            }
+            img {
+                height: 60px;
+            }
+            span {
+                font-size: 24px;
+            }
+        }
+    }
+    .container-3 {
+        p {
+            width: auto;
+            font-size: 20px;
+            padding: 0px 30px;
+        }
+    }
+    .container-4 {
+        grid-template-rows: 1fr 1fr 1fr;
+        article {
+            grid-column: 2/3;
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .container-1 {
+        background-image: url("/img/homemidbg.png");
+        .home-title {
+            h1, h2 {
+                font-size: 40px;
+            }
+        }
+    }
+    .container-2 {
+        .card-1, .card-2 {
+            margin-right: 20px;
+        }
+        .cards {
+            height: 230px;
+            width: 230px;
+            top: -90px;
+            .gros-vert {
+                font-size: 85px;
+            }
+            img {
+                height: 50px;
+            }
+            span {
+                font-size: 20px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 720px) {
+    .container-2 {
+        .cards {
+            height: 200px;
+            width: 200px;
+            top: -70px;
+            .gros-vert {
+                font-size: 75px;
+            }
+            img {
+                height: 40px;
+            }
+            span {
+                font-size: 18px;
+            }
+        }
+    }
+    .container-3 {
+        p {
+            font-size: 18px;
+            padding: 0px 60px;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .container-2 {
+        display: none;
+    }
+    .container-3 {
+        margin-top: 50px;
+    }
+    .container-1 {
+        .home-title {
+                h1, h2 {
+                    font-size: 34px;
+                }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .container-1 {
+        background-image: url("/img/homemobilbg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+@media screen and (max-width: 340px) {
+    .container-1 {
+        .home-title {
+                h1, h2 {
+                    font-size: 30px;
+                }
+        }
+    }
+    .container-3 {
+        p {
+            font-size: 16px;
+            padding: 0px 15px;
+        }
+    }
+    .container-4-title {
+        h2 {
+            font-size: 22px;
+        }
+    }
+    .container-4 {
+        margin: 10px 0px;
+        margin-top: 20px;
+        article {
+            img {
+                width: 250px;
+            }
+            .content {
+                p {
+                    text-align: center;
+                    width: 250px;
+                    font-size: 16px;
+                    height: auto;
+                }
+            }
+            .formation-btn {
+                font-size: 16px;
+                padding: 10px 30px;
+            }
+            .formation-title {
+                font-size: 16px;
+            }
+        }  
+    }
+}

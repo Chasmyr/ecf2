@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une leçon{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/form/form.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="form form-lesson">
+            <div class="center">
+                <h2>Créer une leçon</h2>
+            </div>
+
+            {{ form_start(form) }}
+
+            {{ form_row(form.title, {'attr': {'placeholder': 'Tire de la leçon'}}) }}
+
+            {{ form_row(form.video, {'attr': {'placeholder': 'url de la video'}}) }}
+
+            {{ form_row(form.content, {'attr': {'placeholder': 'Contenu de la leçon'}}) }}
+
+            <div class="center">
+                <button class="form-btn-succes" type="submit" class="">Valider</button>
+            </div>
+            
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

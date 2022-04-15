@@ -1,0 +1,236 @@
+body {
+  background-image: url("/img/loginbg.png");
+  background-image: cover;
+  background-repeat: no-repeat;
+}
+
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-user {
+  height: 500px;
+  margin-top: 90px;
+}
+
+.login-user h2 {
+  margin-top: 50px;
+}
+
+.login-user form {
+  margin-top: 40px;
+}
+
+.login-user input {
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+.register-user {
+  height: 600px;
+  margin-top: 90px;
+}
+
+.register-user h2 {
+  margin-top: 50px;
+}
+
+.register-user form {
+  margin-top: 40px;
+}
+
+.register-user input {
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+.login-formateur {
+  height: 800px;
+  margin-top: 20px;
+}
+
+.login-formateur h2 {
+  margin-top: 20px;
+}
+
+.login-formateur form {
+  margin-top: 20px;
+}
+
+.login-formateur input {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.login-container {
+  width: 600px;
+  background-color: #F7F7F2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20px;
+  margin-bottom: 70px;
+}
+
+.login-container h2 {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.login-container label {
+  font-size: 22px;
+}
+
+.login-container input {
+  border: 1px #727272 solid;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #ffffff;
+  color: black;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+.login-container .form-btn-succes {
+  background-color: #0ea47a;
+  border-radius: 20px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 25px;
+  text-decoration: none;
+  -webkit-transition: all .7s;
+  transition: all .7s;
+  border: none;
+  -webkit-box-shadow: 3px 2px 12px -4px rgba(92, 91, 91, 0.84);
+  box-shadow: 3px 2px 12px -4px rgba(92, 91, 91, 0.84);
+}
+
+.login-container .form-btn-succes:hover {
+  background-color: #57d6a9;
+  -webkit-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+.login-container .register-link {
+  margin-bottom: 0px;
+  height: 70px;
+  background-color: #727272;
+  width: 600px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-container .register-link .register-content {
+  display: inline-block;
+  padding-left: 30px;
+  width: 300px;
+  color: white;
+}
+
+.login-container .register-link .register-content a {
+  text-decoration: none;
+  color: #57d6a9;
+  display: inline;
+}
+
+.login-container .register-link .register-content a:hover {
+  text-decoration: underline;
+}
+
+.login-container .register-link .register-content .green {
+  color: #57d6a9;
+  display: inline;
+}
+
+@media screen and (max-width: 640px) {
+  .login-container {
+    width: 500px;
+  }
+  .login-container .register-link {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    background-image: url("/img/loginmobilbg.png");
+  }
+  .login-container h2 {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+  .login-container .input label {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-container {
+    width: 350px;
+  }
+  .login-container .form-title {
+    position: relative;
+    top: 40px;
+  }
+  .login-container .input {
+    width: 280px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .login-container .register-link {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .login-container {
+    width: 300px;
+  }
+  .login-container .input {
+    width: 260px;
+  }
+  .login-container .register-link {
+    width: 300px;
+  }
+}
+/*# sourceMappingURL=login.css.map */

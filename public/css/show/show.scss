@@ -1,0 +1,465 @@
+
+.menuWrapper {
+    width: 0;
+    position: fixed;
+    height: 100%;
+    z-index: 1;
+    top: 80px;
+    left: 0;
+    background-color: #474747;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-top: 60px;
+    transition: 0.4s;
+    color: white;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .green-title {
+        color: #57d6a9;
+    }
+    .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        color: white;
+        text-decoration: none;
+    }
+    .menu-item {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .formation-menu {
+        text-align: center;
+        font-size: 26px;
+        color: #57d6a9;
+    }
+    .section-menu {
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #F7F7F2;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: black;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+            user-select: none;
+            .open-accordeon-img {
+                transform: rotate(90deg);
+                transition: .4s;
+                height: 22px;
+            }
+        }
+    }
+    .lesson-menu {
+        height: 0px;
+        
+        .lesson-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            display: flex;
+            align-items: center;
+            
+            // ajouter le fait que tatn que l'animation a pas fini les el ne sont pas clickable
+            pointer-events: none;
+            a {
+                text-decoration: none;
+                color: transparent;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            
+        }
+        
+    }
+}
+.progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    .progress-number {
+        margin-left: 10px;
+    }
+    .progress-bar {
+        width: 800px;
+        height: 50px;
+        border: 1px solid black;
+        .progress-content {
+            width: 0;
+            height: 50px;
+            background-color: #0EA47A;
+        }
+        
+    }
+}
+.open-menu-container {
+    .open-menu {
+        margin-left: 20px;
+        img {
+            height: 30px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+    }
+}
+.content {
+    transition: 0.4s;
+    .lesson-content {
+        display: none;
+        margin-top: 20px;
+        .lesson-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .annexe {
+                max-width: 1350px;
+                align-self: flex-start;
+                margin-left: 120px;
+                h3 {
+                    margin-bottom: 5px;
+                }
+                a {
+                    text-decoration: none;
+                    color: #0ea47a;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .lesson-video {
+                iframe {
+                    width: 1280px;
+                    height: 720px;
+                }
+            }
+            .lesson-content-title {
+                margin-top: 20px;
+                text-align: center;
+            }
+            .lesson-text {
+                margin: 20px 0px 20px 0px;
+                width: auto;
+                max-width: 1350px;
+                line-height: 22px;
+                text-align: justify;
+            }
+            .options {
+                margin-bottom: 40px;
+                display: flex;
+                justify-content: flex-end;
+                
+                .lesson-back {
+                    background-color:#474747;
+                    border-radius:20px;
+                    display: inline-block;
+                    cursor: pointer;
+                    color:#ffffff;
+                    font-size: 18px;
+                    padding: 15px 40px;
+                    text-decoration: none;
+                    transition: all .7s;
+                    margin-top: 40px;
+                    margin-right: 20px;
+                    -webkit-box-shadow: 3px 2px 12px -4px rgba(92, 91, 91, 0.84); 
+                    box-shadow: 3px 2px 12px -4px rgba(92, 91, 91, 0.84);
+                    &:hover {
+                        background-color: #727272;
+                        -webkit-transition: background-color 500ms linear;
+                        -ms-transition: background-color 500ms linear;
+                        transition: background-color 500ms linear;
+                    }
+                }
+                .lesson-complete, .formation-complete {
+                    background-color:#0ea47a;
+                    border-radius:20px;
+                    display: inline-block;
+                    cursor: pointer;
+                    color:#ffffff;
+                    font-size: 18px;
+                    padding: 15px 40px;
+                    text-decoration: none;
+                    transition: all .7s;
+                    margin-top: 40px;
+                    -webkit-box-shadow: 3px 2px 12px -4px rgba(92, 91, 91, 0.84); 
+                    box-shadow: 3px 2px 12px -4px rgba(92, 91, 91, 0.84);
+                    &:hover {
+                        background-color: #57d6a9;
+                        -webkit-transition: background-color 500ms linear;
+                        -ms-transition: background-color 500ms linear;
+                        transition: background-color 500ms linear;
+                    }
+                }
+            }
+        }
+        
+    }
+    .lesson-content:first-of-type {
+        display: block;
+    }
+
+}
+@media screen and (max-width: 1440px) {
+    .content {
+        .lesson-content {
+            .lesson-wrapper {
+                .annexe {
+                    margin-left: 50px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1280px) {
+    .content {
+        .lesson-content {
+            .lesson-wrapper {
+                .annexe {
+                    margin-left: 20px;
+                }
+                .lesson-text {
+                    margin: 20px 20px;
+                }
+                .lesson-video {
+                    iframe {
+                        width: 1024px;
+                        height: 576px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .content {
+        .lesson-content {
+            .lesson-wrapper {
+                .lesson-video {
+                    iframe {
+                        width: 800px;
+                        height: 450px;
+                    }
+                }
+            }
+        }
+    }
+    .progress {
+        .progress-bar {
+            width: 720px;
+        }
+    }
+    .menuWrapper {
+        .formation-menu {
+            font-size: 20px;
+        }
+        .section-menu {
+            .section-title {
+                font-size: 16px;
+            }
+        }
+        .lesson-menu {
+            .lesson-title {
+                font-size: 15px;
+            }
+        }
+    }
+    
+}
+@media screen and (max-width: 800px) {
+    .content {
+        .lesson-content {
+            .lesson-content-title {
+                font-size: 16px;
+                font-weight: 400;
+            }
+            .lesson-wrapper {
+                .annexe {
+                    margin-left: 40px;
+                }
+                .lesson-text {
+                    margin: 20px 40px;
+                }
+                .lesson-video {
+                    iframe {
+                        width: 720px;
+                        height: 405px;
+                    }
+                }
+            }
+        }
+    }
+    .progress {
+        .progress-bar {
+            width: 600px;
+        }
+    }
+}
+@media screen and (max-width: 720px) {
+    .content {
+        .lesson-content {
+            .lesson-content-title {
+                font-size: 14px;
+            }
+            .lesson-wrapper {
+                .lesson-video {
+                    iframe {
+                        width: 640px;
+                        height: 360px;
+                    }
+                }
+            }
+        }
+    }
+    .progress {
+        .progress-bar {
+            width: 400px;
+            height: 30px;
+            .progress-content {
+                height: 30px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .content {
+        .lesson-content {
+            .lesson-wrapper {
+                .lesson-video {
+                    iframe {
+                        width: 576px;
+                        height: 324px;
+                    }
+                }
+                .options {
+                    .lesson-back {
+                        padding: 12px 36px;
+                        font-size: 16px;
+                    }
+                    .lesson-complete, .formation-complete {
+                        padding: 12px 36px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        
+    }
+    .progress {
+        .progress-bar {
+            width: 350px;
+        }
+    }
+    .menuWrapper {
+        .formation-menu {
+            font-size: 18px;
+        }
+        .section-menu {
+            .section-title {
+                font-size: 15px;
+            }
+        }
+        .lesson-menu {
+            .lesson-title {
+                font-size: 14px;
+            }
+        }
+    }
+    
+}
+@media screen and (max-width: 576px) {
+    .content {
+        .lesson-content {
+            .lesson-content-title {
+                margin: 20px 20px;
+            }
+            .lesson-wrapper {
+                .lesson-video {
+                    iframe {
+                        width: 480px;
+                        height: 270px;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+@media screen and (max-width: 480px) {
+    .content {
+        .lesson-content {
+            .lesson-wrapper {
+                .lesson-video {
+                    iframe {
+                        width: 340px;
+                        height: 191px;
+                    }
+                }
+                .lesson-text {
+                    p {
+                        font-size: 14px;
+                    }
+                }
+                .annexe {
+                    font-size: 14px;
+                }
+                .options {
+                    flex-direction: column;
+                    .lesson-back {
+                        padding: 10px 20px;
+                        font-size: 14px;
+                        margin-right: 0px;
+                    }
+                    .lesson-complete, .formation-complete {
+                        padding: 10px 30px;
+                        font-size: 14px;
+                        margin-right: 0px;
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .progress {
+        .progress-bar {
+            width: 280px;
+        }
+    }
+}
+@media screen and (max-width: 340px) {
+    .content {
+        .lesson-content {
+            .lesson-wrapper {
+                .lesson-video {
+                    iframe {
+                        width: 320px;
+                        height: 180;
+                    }
+                }
+            }
+        }
+    }
+    .progress {
+        .progress-bar {
+            width: 160px;
+        }
+    }
+    .open-menu-container {
+        .open-menu {
+            margin-left: 5px;
+        }
+    }
+}

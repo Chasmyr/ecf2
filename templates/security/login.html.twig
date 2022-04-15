@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/login/login.css">
+{% endblock %}
+
+{% block body %}  
+    <div class="center">
+
+        <section class="login-container login-user">
+
+            <h2 class="form-title">Connexion</h2>
+            <form action="{{ path('security_login') }}" method="post">
+                <div class="input">
+                    <label for="_username">Adresse email</label>
+                    <input placeholder="Adresse email..." required name="_username" type="text" class="">
+                </div>
+                <div class="input">
+                    <label for="_username">Mot de passe</label>
+                    <input placeholder="Mot de passe..." required name="_password" type="password" class="">
+                </div>
+                <div class="center">
+                    <button type="submit" class="form-btn-succes">Se connecter</button>
+                </div>
+            </form>
+            <div class="register-link">
+                <span class="register-content">S'inscire : 
+                    <a href="{{ path('security_registration_user') }}">Apprenant</a>
+                    <p class="green"> / </p>
+                    <a href="{{ path('security_registration_formateur') }}">Formateur</a>
+                </span>
+            </div>
+        
+        </section>
+    
+    </div>
+
+{% endblock %}

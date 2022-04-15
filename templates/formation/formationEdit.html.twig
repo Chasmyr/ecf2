@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer une formation{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/table/table.css">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="center">
+            <h2>Gérer vos sections</h2>
+        </div>
+        
+        <div class="center">
+            <table class="table-section table">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for section in sectionsList %}
+                    <tr>
+                        <td class="table-cel">{{ section.title }}</td>
+                        <td>
+                            <a href="{{ path('edit_section', {id: section.id}) }}" class="edit"><img src="/img/edit.svg"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="center">
+            <div class="options">
+                    <div class="add-option">
+                        <a class="create-option" href="{{ path('create_section', {id: formation.id}) }}">Ajouter une section</a>
+                    </div>
+                    <div class="return">
+                        <a class="validate-option" href="{{ path('list_formation') }}">Valider</a>
+                    </div>
+            </div>
+        </div>   
+        
+    </div>
+    
+{% endblock %}

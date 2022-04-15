@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une formation{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/table/table.css">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="center">
+            <h2>Gérer vos formations</h2>
+        </div>
+        
+        <div class="center">
+            <table class="table table-formation">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for formation in formationsList %}
+                    <tr>
+                        <td class="table-cel">{{ formation.title }}</td>
+                        <td>
+                            <a href="{{ path('edit_formation', {id: formation.id}) }}" class="edit"><img src="/img/edit.svg"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="options-logout">
+            <a href="{{ path('security_logout') }}" class="logout">Se deconnecter</a>
+            {% if app.user.state == true %}
+                <a href="{{ path('create_formation') }}" class="create-formation">Créer une formation</a>
+            {% endif %}
+    </div>
+
+{% endblock %}

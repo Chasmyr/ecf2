@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ formation.title }} {% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/show/show.css">
+{% endblock %}
+
+{% block body %}
+    
+    <section>
+        
+        <div class="menuWrapper" id="menu">
+            <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
+            <h2 class="formation-menu menu-item">{{ formation.title }}</h2>
+            {% for section in formation.sections %}
+                <div class="section-menu menu-item" id="section-menu{{ section.id }}">
+                    <h3 class="section-title menu-item" id="section{{ section.id }}">
+                        {{ section.title }}<img src="/img/arrow.png" class="open-accordeon-img">
+                    </h3>
+
+                        {% for lesson in section.lessons %}
+                        <div class="lesson-menu menu-item">
+                            <span class="lesson-title" id="lesson-menu{{ lesson.id }}">
+                                <a href="#">• {{ lesson.title }}</a>
+                            </span>
+                        </div>
+                        {% endfor %}
+
+                </div>
+                
+            {% endfor %}
+        </div>
+        
+        <div class="progress">
+                <div class="progress-bar">
+                    <div class="progress-content" style="width:{{ progress }}%">
+                    </div> 
+                </div>
+                <span class="progress-number">{{ progress // 1 }}%</span>
+        </div>
+        <div class="open-menu-container">
+            <span class="open-menu"><img id="openMenu" src="/img/arrow.png" class="open-menu-img"></span>
+        </div>
+        <div class="content" id="content">
+            
+                {% for lesson in lessons %}
+                    <div class="lesson-content" id="lesson{{ lesson.id }}">
+                            <div class="lesson-wrapper">
+                            
+                                <div class="lesson-video">
+                                    <iframe src="{{ lesson.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="lesson-content-title">
+                                    <h2>{{ lesson.title }}</h2>
+                                </div>
+                                <div class="lesson-text">
+                                    <p>{{ lesson.content }}</p>
+                                </div>
+                                {% if lesson.annexes | length > 0 %}
+                                    <div class="annexe">
+                                        <h3>Documents supplémentaires :</h3>
+                                        {% for annexe in lesson.annexes %}
+                                            <p>Voir : <a href="{{ annexe.path }}">{{ annexe.title }}</a></p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="options">
+
+                                    <a href="#" class="lesson-back">Leçon précedente</a>
+                                    {% if loop.last %}
+                                        <a href="{{ path('formation_complete', {'id': lesson.id}) }}" class="formation-complete">Formation terminée</a>
+                                    {% else %}
+                                        <a href="{{ path('lesson_complete', {'id': lesson.id}) }}" class="lesson-complete">Leçon terminée</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                    </div>
+                {% endfor %}
+        </div>
+    </section>
+
+<script src="/js/show/show.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/show/ajax.js"></script>
+{% endblock %}

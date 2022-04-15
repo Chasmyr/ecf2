@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="stylesheet" href="/css/nav/nav.css">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="{{ path('home') }}"><img src="/img/logo.png" class="navbar-logo"></a>
+            <p class="navbar-item long-item"><a href="{{ path('app_formation') }}">Liste des Formations</a></p>
+            <p class="navbar-item short-item"><a href="{{ path('app_formation') }}">Les Formations</a></p>
+            <p class="navbar-item shortier-item"><a href="{{ path('app_formation') }}">Formations</a></p>
+            {% if not app.user %}
+                <p class="navbar-item"><a href="{{ path('security_login') }}">Connexion</a></p>
+                {% elseif app.user.roles == ['ROLE_ADMIN'] %}
+                    <p class="navbar-item"><a href="{{ path('user_admin') }}">Gestion admin</a></p>
+                {% elseif app.user.roles == ['ROLE_FORMATEUR'] %}
+                    <p class="navbar-item"><a href="{{ path('list_formation') }}">Mes formations</a></p>
+                {% else %}
+                    <p class="navbar-item"><a href="{{ path('user_acc') }}">Mon compte</a></p>
+            {% endif %}
+        </nav>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </body>
+</html>

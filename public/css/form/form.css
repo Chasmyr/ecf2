@@ -1,0 +1,108 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .form {
+  background-color: #474747;
+  padding: 40px;
+  border-radius: 20px;
+  width: 450px;
+  margin-top: 150px;
+  color: white;
+}
+
+.container .form h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.container .form input, .container .form textarea {
+  background-color: #727272;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: black;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+.container .form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.container .form label {
+  font-size: 18px;
+}
+
+.container .form input:focus, .container .form textarea:focus {
+  background-color: #dfe4e7;
+}
+
+.container .form .form-btn-succes {
+  background-color: #0ea47a;
+  border-radius: 20px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 25px;
+  text-decoration: none;
+  -webkit-transition: all .7s;
+  transition: all .7s;
+  border: none;
+  -webkit-box-shadow: 3px 2px 12px -4px rgba(92, 91, 91, 0.84);
+  box-shadow: 3px 2px 12px -4px rgba(92, 91, 91, 0.84);
+}
+
+.container .form .form-btn-succes:hover {
+  background-color: #57d6a9;
+  -webkit-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+.container .form .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .container .form {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .container .form {
+    width: 230px;
+  }
+  .container .form label {
+    font-size: 16px;
+  }
+  .container .form .center h2 {
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=form.css.map */

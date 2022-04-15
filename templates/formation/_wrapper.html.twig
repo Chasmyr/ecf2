@@ -1,0 +1,13 @@
+{% for formation in formations %}
+
+    <article>
+        <img src="{{ formation.image }}" alt="">
+        <h3 class="formation-title">{{ formation.title }}</h3>
+        <div class="content">
+            <p>{{ formation.content }}</p>
+        </div>
+            
+        <a href="formation/{{ formation.id }}" class="formation-btn">Je me lance !</a>
+    </article>
+
+{% endfor %}

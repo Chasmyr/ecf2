@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des formations !{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/formation/formation.css">
+{% endblock %}
+
+{% block body %}
+
+<section class="head">
+
+    <h2 class="long-text-formation">Liste des </h2>
+    <h2><span class="vert">Formations</span> Faites pour vous</h2>
+
+</section>
+
+<section class="options">
+    <div class="search-bar">
+        {{ form_start(form) }}
+            {{ form_row(form.q) }}
+        <button type="submit">Filtrer</button>
+        {{ form_end(form) }}
+    </div>
+</section>
+
+<section class="wrapper">
+
+    {% include 'formation/_wrapper.html.twig' %}
+
+</section>
+
+<div class="pagination-container">
+    <div class="pagination-js">
+        {% include 'formation/_pagination.html.twig' %}
+    </div>
+</div>
+
+<script src="/js/formation/ajax.js"></script>
+{% endblock %}
