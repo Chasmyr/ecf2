@@ -8,12 +8,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class MiddlewareConfig 
 {
     private $id;
     private $arguments;
+    private $_usedProperties = [];
     
     /**
      * @default null
@@ -22,6 +23,7 @@ class MiddlewareConfig
      */
     public function id($value): static
     {
+        $this->_usedProperties['id'] = true;
         $this->id = $value;
     
         return $this;
@@ -34,6 +36,7 @@ class MiddlewareConfig
      */
     public function arguments(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['arguments'] = true;
         $this->arguments = $value;
     
         return $this;
@@ -42,12 +45,14 @@ class MiddlewareConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['id'])) {
+        if (array_key_exists('id', $value)) {
+            $this->_usedProperties['id'] = true;
             $this->id = $value['id'];
             unset($value['id']);
         }
     
-        if (isset($value['arguments'])) {
+        if (array_key_exists('arguments', $value)) {
+            $this->_usedProperties['arguments'] = true;
             $this->arguments = $value['arguments'];
             unset($value['arguments']);
         }
@@ -60,10 +65,10 @@ class MiddlewareConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->id) {
+        if (isset($this->_usedProperties['id'])) {
             $output['id'] = $this->id;
         }
-        if (null !== $this->arguments) {
+        if (isset($this->_usedProperties['arguments'])) {
             $output['arguments'] = $this->arguments;
         }
     

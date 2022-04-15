@@ -206,6 +206,6 @@ class __TwigTemplate_abea92a0f41166487fad9ce5179ee4a08246b424bd82c5f1e61dda2fc3e
             <a href=\"{{ path('security_logout') }}\" class=\"logout\">Se deconnecter</a>
     </div>
 
-{% endblock %}", "security/userAcc.html.twig", "E:\\ecf\\ECF\\templates\\security\\userAcc.html.twig");
+{% endblock %}", "security/userAcc.html.twig", "E:\\ecf2\\templates\\security\\userAcc.html.twig");
     }
 }

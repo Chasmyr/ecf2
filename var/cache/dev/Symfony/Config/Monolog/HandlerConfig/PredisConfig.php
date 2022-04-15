@@ -8,12 +8,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class PredisConfig 
 {
     private $id;
     private $host;
+    private $_usedProperties = [];
     
     /**
      * @default null
@@ -22,6 +23,7 @@ class PredisConfig
      */
     public function id($value): static
     {
+        $this->_usedProperties['id'] = true;
         $this->id = $value;
     
         return $this;
@@ -34,6 +36,7 @@ class PredisConfig
      */
     public function host($value): static
     {
+        $this->_usedProperties['host'] = true;
         $this->host = $value;
     
         return $this;
@@ -42,12 +45,14 @@ class PredisConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['id'])) {
+        if (array_key_exists('id', $value)) {
+            $this->_usedProperties['id'] = true;
             $this->id = $value['id'];
             unset($value['id']);
         }
     
-        if (isset($value['host'])) {
+        if (array_key_exists('host', $value)) {
+            $this->_usedProperties['host'] = true;
             $this->host = $value['host'];
             unset($value['host']);
         }
@@ -60,10 +65,10 @@ class PredisConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->id) {
+        if (isset($this->_usedProperties['id'])) {
             $output['id'] = $this->id;
         }
-        if (null !== $this->host) {
+        if (isset($this->_usedProperties['host'])) {
             $output['host'] = $this->host;
         }
     

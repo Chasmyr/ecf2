@@ -8,12 +8,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class PlaceConfig 
 {
     private $name;
     private $metadata;
+    private $_usedProperties = [];
     
     /**
      * @default null
@@ -22,6 +23,7 @@ class PlaceConfig
      */
     public function name($value): static
     {
+        $this->_usedProperties['name'] = true;
         $this->name = $value;
     
         return $this;
@@ -34,6 +36,7 @@ class PlaceConfig
      */
     public function metadata(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['metadata'] = true;
         $this->metadata = $value;
     
         return $this;
@@ -42,12 +45,14 @@ class PlaceConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['name'])) {
+        if (array_key_exists('name', $value)) {
+            $this->_usedProperties['name'] = true;
             $this->name = $value['name'];
             unset($value['name']);
         }
     
-        if (isset($value['metadata'])) {
+        if (array_key_exists('metadata', $value)) {
+            $this->_usedProperties['metadata'] = true;
             $this->metadata = $value['metadata'];
             unset($value['metadata']);
         }
@@ -60,10 +65,10 @@ class PlaceConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->name) {
+        if (isset($this->_usedProperties['name'])) {
             $output['name'] = $this->name;
         }
-        if (null !== $this->metadata) {
+        if (isset($this->_usedProperties['metadata'])) {
             $output['metadata'] = $this->metadata;
         }
     

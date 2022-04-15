@@ -8,15 +8,18 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class MemoryConfig 
 {
     private $users;
+    private $_usedProperties = [];
     
     public function user(string $identifier, array $value = []): \Symfony\Config\Security\ProviderConfig\Memory\UserConfig
     {
         if (!isset($this->users[$identifier])) {
+            $this->_usedProperties['users'] = true;
+    
             return $this->users[$identifier] = new \Symfony\Config\Security\ProviderConfig\Memory\UserConfig($value);
         }
         if ([] === $value) {
@@ -29,7 +32,8 @@ class MemoryConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['users'])) {
+        if (array_key_exists('users', $value)) {
+            $this->_usedProperties['users'] = true;
             $this->users = array_map(function ($v) { return new \Symfony\Config\Security\ProviderConfig\Memory\UserConfig($v); }, $value['users']);
             unset($value['users']);
         }
@@ -42,7 +46,7 @@ class MemoryConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->users) {
+        if (isset($this->_usedProperties['users'])) {
             $output['users'] = array_map(function ($v) { return $v->toArray(); }, $this->users);
         }
     

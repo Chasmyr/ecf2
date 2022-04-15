@@ -8,11 +8,12 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class ViewConfig 
 {
     private $annotations;
+    private $_usedProperties = [];
     
     /**
      * @default true
@@ -21,6 +22,7 @@ class ViewConfig
      */
     public function annotations($value): static
     {
+        $this->_usedProperties['annotations'] = true;
         $this->annotations = $value;
     
         return $this;
@@ -29,7 +31,8 @@ class ViewConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['annotations'])) {
+        if (array_key_exists('annotations', $value)) {
+            $this->_usedProperties['annotations'] = true;
             $this->annotations = $value['annotations'];
             unset($value['annotations']);
         }
@@ -42,7 +45,7 @@ class ViewConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->annotations) {
+        if (isset($this->_usedProperties['annotations'])) {
             $output['annotations'] = $this->annotations;
         }
     

@@ -8,7 +8,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class RedisConfig 
 {
@@ -18,6 +18,7 @@ class RedisConfig
     private $port;
     private $database;
     private $keyName;
+    private $_usedProperties = [];
     
     /**
      * @default null
@@ -26,6 +27,7 @@ class RedisConfig
      */
     public function id($value): static
     {
+        $this->_usedProperties['id'] = true;
         $this->id = $value;
     
         return $this;
@@ -38,6 +40,7 @@ class RedisConfig
      */
     public function host($value): static
     {
+        $this->_usedProperties['host'] = true;
         $this->host = $value;
     
         return $this;
@@ -50,6 +53,7 @@ class RedisConfig
      */
     public function password($value): static
     {
+        $this->_usedProperties['password'] = true;
         $this->password = $value;
     
         return $this;
@@ -62,6 +66,7 @@ class RedisConfig
      */
     public function port($value): static
     {
+        $this->_usedProperties['port'] = true;
         $this->port = $value;
     
         return $this;
@@ -74,6 +79,7 @@ class RedisConfig
      */
     public function database($value): static
     {
+        $this->_usedProperties['database'] = true;
         $this->database = $value;
     
         return $this;
@@ -86,6 +92,7 @@ class RedisConfig
      */
     public function keyName($value): static
     {
+        $this->_usedProperties['keyName'] = true;
         $this->keyName = $value;
     
         return $this;
@@ -94,32 +101,38 @@ class RedisConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['id'])) {
+        if (array_key_exists('id', $value)) {
+            $this->_usedProperties['id'] = true;
             $this->id = $value['id'];
             unset($value['id']);
         }
     
-        if (isset($value['host'])) {
+        if (array_key_exists('host', $value)) {
+            $this->_usedProperties['host'] = true;
             $this->host = $value['host'];
             unset($value['host']);
         }
     
-        if (isset($value['password'])) {
+        if (array_key_exists('password', $value)) {
+            $this->_usedProperties['password'] = true;
             $this->password = $value['password'];
             unset($value['password']);
         }
     
-        if (isset($value['port'])) {
+        if (array_key_exists('port', $value)) {
+            $this->_usedProperties['port'] = true;
             $this->port = $value['port'];
             unset($value['port']);
         }
     
-        if (isset($value['database'])) {
+        if (array_key_exists('database', $value)) {
+            $this->_usedProperties['database'] = true;
             $this->database = $value['database'];
             unset($value['database']);
         }
     
-        if (isset($value['key_name'])) {
+        if (array_key_exists('key_name', $value)) {
+            $this->_usedProperties['keyName'] = true;
             $this->keyName = $value['key_name'];
             unset($value['key_name']);
         }
@@ -132,22 +145,22 @@ class RedisConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->id) {
+        if (isset($this->_usedProperties['id'])) {
             $output['id'] = $this->id;
         }
-        if (null !== $this->host) {
+        if (isset($this->_usedProperties['host'])) {
             $output['host'] = $this->host;
         }
-        if (null !== $this->password) {
+        if (isset($this->_usedProperties['password'])) {
             $output['password'] = $this->password;
         }
-        if (null !== $this->port) {
+        if (isset($this->_usedProperties['port'])) {
             $output['port'] = $this->port;
         }
-        if (null !== $this->database) {
+        if (isset($this->_usedProperties['database'])) {
             $output['database'] = $this->database;
         }
-        if (null !== $this->keyName) {
+        if (isset($this->_usedProperties['keyName'])) {
             $output['key_name'] = $this->keyName;
         }
     

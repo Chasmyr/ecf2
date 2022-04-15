@@ -8,12 +8,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class EventConfig 
 {
     private $type;
     private $method;
+    private $_usedProperties = [];
     
     /**
      * @default null
@@ -22,6 +23,7 @@ class EventConfig
      */
     public function type($value): static
     {
+        $this->_usedProperties['type'] = true;
         $this->type = $value;
     
         return $this;
@@ -34,6 +36,7 @@ class EventConfig
      */
     public function method($value): static
     {
+        $this->_usedProperties['method'] = true;
         $this->method = $value;
     
         return $this;
@@ -42,12 +45,14 @@ class EventConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['type'])) {
+        if (array_key_exists('type', $value)) {
+            $this->_usedProperties['type'] = true;
             $this->type = $value['type'];
             unset($value['type']);
         }
     
-        if (isset($value['method'])) {
+        if (array_key_exists('method', $value)) {
+            $this->_usedProperties['method'] = true;
             $this->method = $value['method'];
             unset($value['method']);
         }
@@ -60,10 +65,10 @@ class EventConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->type) {
+        if (isset($this->_usedProperties['type'])) {
             $output['type'] = $this->type;
         }
-        if (null !== $this->method) {
+        if (isset($this->_usedProperties['method'])) {
             $output['method'] = $this->method;
         }
     

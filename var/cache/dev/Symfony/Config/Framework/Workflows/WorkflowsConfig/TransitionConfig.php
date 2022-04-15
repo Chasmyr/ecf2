@@ -8,7 +8,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class TransitionConfig 
 {
@@ -17,6 +17,7 @@ class TransitionConfig
     private $from;
     private $to;
     private $metadata;
+    private $_usedProperties = [];
     
     /**
      * @default null
@@ -25,6 +26,7 @@ class TransitionConfig
      */
     public function name($value): static
     {
+        $this->_usedProperties['name'] = true;
         $this->name = $value;
     
         return $this;
@@ -39,6 +41,7 @@ class TransitionConfig
      */
     public function guard($value): static
     {
+        $this->_usedProperties['guard'] = true;
         $this->guard = $value;
     
         return $this;
@@ -51,6 +54,7 @@ class TransitionConfig
      */
     public function from(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['from'] = true;
         $this->from = $value;
     
         return $this;
@@ -63,6 +67,7 @@ class TransitionConfig
      */
     public function to(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['to'] = true;
         $this->to = $value;
     
         return $this;
@@ -75,6 +80,7 @@ class TransitionConfig
      */
     public function metadata(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['metadata'] = true;
         $this->metadata = $value;
     
         return $this;
@@ -83,27 +89,32 @@ class TransitionConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['name'])) {
+        if (array_key_exists('name', $value)) {
+            $this->_usedProperties['name'] = true;
             $this->name = $value['name'];
             unset($value['name']);
         }
     
-        if (isset($value['guard'])) {
+        if (array_key_exists('guard', $value)) {
+            $this->_usedProperties['guard'] = true;
             $this->guard = $value['guard'];
             unset($value['guard']);
         }
     
-        if (isset($value['from'])) {
+        if (array_key_exists('from', $value)) {
+            $this->_usedProperties['from'] = true;
             $this->from = $value['from'];
             unset($value['from']);
         }
     
-        if (isset($value['to'])) {
+        if (array_key_exists('to', $value)) {
+            $this->_usedProperties['to'] = true;
             $this->to = $value['to'];
             unset($value['to']);
         }
     
-        if (isset($value['metadata'])) {
+        if (array_key_exists('metadata', $value)) {
+            $this->_usedProperties['metadata'] = true;
             $this->metadata = $value['metadata'];
             unset($value['metadata']);
         }
@@ -116,19 +127,19 @@ class TransitionConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->name) {
+        if (isset($this->_usedProperties['name'])) {
             $output['name'] = $this->name;
         }
-        if (null !== $this->guard) {
+        if (isset($this->_usedProperties['guard'])) {
             $output['guard'] = $this->guard;
         }
-        if (null !== $this->from) {
+        if (isset($this->_usedProperties['from'])) {
             $output['from'] = $this->from;
         }
-        if (null !== $this->to) {
+        if (isset($this->_usedProperties['to'])) {
             $output['to'] = $this->to;
         }
-        if (null !== $this->metadata) {
+        if (isset($this->_usedProperties['metadata'])) {
             $output['metadata'] = $this->metadata;
         }
     

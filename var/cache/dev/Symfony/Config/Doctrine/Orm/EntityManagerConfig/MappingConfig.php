@@ -8,7 +8,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class MappingConfig 
 {
@@ -18,6 +18,7 @@ class MappingConfig
     private $alias;
     private $prefix;
     private $isBundle;
+    private $_usedProperties = [];
     
     /**
      * @default true
@@ -26,6 +27,7 @@ class MappingConfig
      */
     public function mapping($value): static
     {
+        $this->_usedProperties['mapping'] = true;
         $this->mapping = $value;
     
         return $this;
@@ -38,6 +40,7 @@ class MappingConfig
      */
     public function type($value): static
     {
+        $this->_usedProperties['type'] = true;
         $this->type = $value;
     
         return $this;
@@ -50,6 +53,7 @@ class MappingConfig
      */
     public function dir($value): static
     {
+        $this->_usedProperties['dir'] = true;
         $this->dir = $value;
     
         return $this;
@@ -62,6 +66,7 @@ class MappingConfig
      */
     public function alias($value): static
     {
+        $this->_usedProperties['alias'] = true;
         $this->alias = $value;
     
         return $this;
@@ -74,6 +79,7 @@ class MappingConfig
      */
     public function prefix($value): static
     {
+        $this->_usedProperties['prefix'] = true;
         $this->prefix = $value;
     
         return $this;
@@ -86,6 +92,7 @@ class MappingConfig
      */
     public function isBundle($value): static
     {
+        $this->_usedProperties['isBundle'] = true;
         $this->isBundle = $value;
     
         return $this;
@@ -94,32 +101,38 @@ class MappingConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['mapping'])) {
+        if (array_key_exists('mapping', $value)) {
+            $this->_usedProperties['mapping'] = true;
             $this->mapping = $value['mapping'];
             unset($value['mapping']);
         }
     
-        if (isset($value['type'])) {
+        if (array_key_exists('type', $value)) {
+            $this->_usedProperties['type'] = true;
             $this->type = $value['type'];
             unset($value['type']);
         }
     
-        if (isset($value['dir'])) {
+        if (array_key_exists('dir', $value)) {
+            $this->_usedProperties['dir'] = true;
             $this->dir = $value['dir'];
             unset($value['dir']);
         }
     
-        if (isset($value['alias'])) {
+        if (array_key_exists('alias', $value)) {
+            $this->_usedProperties['alias'] = true;
             $this->alias = $value['alias'];
             unset($value['alias']);
         }
     
-        if (isset($value['prefix'])) {
+        if (array_key_exists('prefix', $value)) {
+            $this->_usedProperties['prefix'] = true;
             $this->prefix = $value['prefix'];
             unset($value['prefix']);
         }
     
-        if (isset($value['is_bundle'])) {
+        if (array_key_exists('is_bundle', $value)) {
+            $this->_usedProperties['isBundle'] = true;
             $this->isBundle = $value['is_bundle'];
             unset($value['is_bundle']);
         }
@@ -132,22 +145,22 @@ class MappingConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->mapping) {
+        if (isset($this->_usedProperties['mapping'])) {
             $output['mapping'] = $this->mapping;
         }
-        if (null !== $this->type) {
+        if (isset($this->_usedProperties['type'])) {
             $output['type'] = $this->type;
         }
-        if (null !== $this->dir) {
+        if (isset($this->_usedProperties['dir'])) {
             $output['dir'] = $this->dir;
         }
-        if (null !== $this->alias) {
+        if (isset($this->_usedProperties['alias'])) {
             $output['alias'] = $this->alias;
         }
-        if (null !== $this->prefix) {
+        if (isset($this->_usedProperties['prefix'])) {
             $output['prefix'] = $this->prefix;
         }
-        if (null !== $this->isBundle) {
+        if (isset($this->_usedProperties['isBundle'])) {
             $output['is_bundle'] = $this->isBundle;
         }
     

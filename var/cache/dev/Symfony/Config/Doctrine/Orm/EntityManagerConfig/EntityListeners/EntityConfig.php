@@ -8,15 +8,18 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class EntityConfig 
 {
     private $listeners;
+    private $_usedProperties = [];
     
     public function listener(string $class, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig\ListenerConfig
     {
         if (!isset($this->listeners[$class])) {
+            $this->_usedProperties['listeners'] = true;
+    
             return $this->listeners[$class] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig\ListenerConfig($value);
         }
         if ([] === $value) {
@@ -29,7 +32,8 @@ class EntityConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['listeners'])) {
+        if (array_key_exists('listeners', $value)) {
+            $this->_usedProperties['listeners'] = true;
             $this->listeners = array_map(function ($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig\ListenerConfig($v); }, $value['listeners']);
             unset($value['listeners']);
         }
@@ -42,7 +46,7 @@ class EntityConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->listeners) {
+        if (isset($this->_usedProperties['listeners'])) {
             $output['listeners'] = array_map(function ($v) { return $v->toArray(); }, $this->listeners);
         }
     

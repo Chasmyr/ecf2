@@ -174,6 +174,6 @@ class __TwigTemplate_86ffc624395f79702f8c6e1933a4eb49bd761db08b392861b73f27607cc
         {% endif %}
     </div>
 {% endblock %}
-", "@WebProfiler/Profiler/open.html.twig", "E:\\ecf\\ECF\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\open.html.twig");
+", "@WebProfiler/Profiler/open.html.twig", "E:\\ecf2\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\open.html.twig");
     }
 }

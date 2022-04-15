@@ -256,6 +256,6 @@ class __TwigTemplate_fec44dcb5a7a4a16759c53d9d795afdae08879ad2d78883f4126e14ae1d
         
     </div>
     
-{% endblock %}", "formation/sectionEdit.html.twig", "E:\\ecf\\ECF\\templates\\formation\\sectionEdit.html.twig");
+{% endblock %}", "formation/sectionEdit.html.twig", "E:\\ecf2\\templates\\formation\\sectionEdit.html.twig");
     }
 }

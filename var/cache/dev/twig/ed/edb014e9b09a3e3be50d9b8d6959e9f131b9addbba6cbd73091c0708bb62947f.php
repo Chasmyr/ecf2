@@ -311,6 +311,6 @@ class __TwigTemplate_bc031acb02dfd707c5f9f1adcf8b290a3d4f1c27b3faa415d34aafdbbfd
     {% endfor %}
 
 </section>
-{% endblock %}", "home.html.twig", "E:\\ecf\\ECF\\templates\\home.html.twig");
+{% endblock %}", "home.html.twig", "E:\\ecf2\\templates\\home.html.twig");
     }
 }

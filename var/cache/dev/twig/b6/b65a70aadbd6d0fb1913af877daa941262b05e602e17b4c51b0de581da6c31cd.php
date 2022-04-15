@@ -285,6 +285,6 @@ class __TwigTemplate_a9a2daeb7a1d5030d14631623793f3905f7405c0ebf72ed3fabd2257297
         {% endif %}
     </ul>
 {% endif %}
-", "@KnpPaginator/Pagination/materialize_pagination.html.twig", "E:\\ecf\\ECF\\vendor\\knplabs\\knp-paginator-bundle\\templates\\Pagination\\materialize_pagination.html.twig");
+", "@KnpPaginator/Pagination/materialize_pagination.html.twig", "E:\\ecf2\\vendor\\knplabs\\knp-paginator-bundle\\templates\\Pagination\\materialize_pagination.html.twig");
     }
 }

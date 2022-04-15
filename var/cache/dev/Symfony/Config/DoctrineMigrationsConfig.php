@@ -9,7 +9,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -26,12 +26,14 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     private $organizeMigrations;
     private $enableProfiler;
     private $transactional;
+    private $_usedProperties = [];
     
     /**
      * @return $this
      */
     public function migrationsPath(string $namespace, mixed $value): static
     {
+        $this->_usedProperties['migrationsPaths'] = true;
         $this->migrationsPaths[$namespace] = $value;
     
         return $this;
@@ -42,6 +44,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function services(string $service, mixed $value): static
     {
+        $this->_usedProperties['services'] = true;
         $this->services[$service] = $value;
     
         return $this;
@@ -52,6 +55,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function factories(string $factory, mixed $value): static
     {
+        $this->_usedProperties['factories'] = true;
         $this->factories[$factory] = $value;
     
         return $this;
@@ -60,6 +64,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     public function storage(array $value = []): \Symfony\Config\DoctrineMigrations\StorageConfig
     {
         if (null === $this->storage) {
+            $this->_usedProperties['storage'] = true;
             $this->storage = new \Symfony\Config\DoctrineMigrations\StorageConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "storage()" has already been initialized. You cannot pass values the second time you call storage().');
@@ -75,6 +80,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function migrations(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['migrations'] = true;
         $this->migrations = $value;
     
         return $this;
@@ -88,6 +94,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function connection($value): static
     {
+        $this->_usedProperties['connection'] = true;
         $this->connection = $value;
     
         return $this;
@@ -101,6 +108,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function em($value): static
     {
+        $this->_usedProperties['em'] = true;
         $this->em = $value;
     
         return $this;
@@ -114,6 +122,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function allOrNothing($value): static
     {
+        $this->_usedProperties['allOrNothing'] = true;
         $this->allOrNothing = $value;
     
         return $this;
@@ -127,6 +136,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function checkDatabasePlatform($value): static
     {
+        $this->_usedProperties['checkDatabasePlatform'] = true;
         $this->checkDatabasePlatform = $value;
     
         return $this;
@@ -140,6 +150,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function customTemplate($value): static
     {
+        $this->_usedProperties['customTemplate'] = true;
         $this->customTemplate = $value;
     
         return $this;
@@ -153,6 +164,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function organizeMigrations($value): static
     {
+        $this->_usedProperties['organizeMigrations'] = true;
         $this->organizeMigrations = $value;
     
         return $this;
@@ -166,6 +178,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function enableProfiler($value): static
     {
+        $this->_usedProperties['enableProfiler'] = true;
         $this->enableProfiler = $value;
     
         return $this;
@@ -179,6 +192,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      */
     public function transactional($value): static
     {
+        $this->_usedProperties['transactional'] = true;
         $this->transactional = $value;
     
         return $this;
@@ -192,67 +206,80 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     public function __construct(array $value = [])
     {
     
-        if (isset($value['migrations_paths'])) {
+        if (array_key_exists('migrations_paths', $value)) {
+            $this->_usedProperties['migrationsPaths'] = true;
             $this->migrationsPaths = $value['migrations_paths'];
             unset($value['migrations_paths']);
         }
     
-        if (isset($value['services'])) {
+        if (array_key_exists('services', $value)) {
+            $this->_usedProperties['services'] = true;
             $this->services = $value['services'];
             unset($value['services']);
         }
     
-        if (isset($value['factories'])) {
+        if (array_key_exists('factories', $value)) {
+            $this->_usedProperties['factories'] = true;
             $this->factories = $value['factories'];
             unset($value['factories']);
         }
     
-        if (isset($value['storage'])) {
+        if (array_key_exists('storage', $value)) {
+            $this->_usedProperties['storage'] = true;
             $this->storage = new \Symfony\Config\DoctrineMigrations\StorageConfig($value['storage']);
             unset($value['storage']);
         }
     
-        if (isset($value['migrations'])) {
+        if (array_key_exists('migrations', $value)) {
+            $this->_usedProperties['migrations'] = true;
             $this->migrations = $value['migrations'];
             unset($value['migrations']);
         }
     
-        if (isset($value['connection'])) {
+        if (array_key_exists('connection', $value)) {
+            $this->_usedProperties['connection'] = true;
             $this->connection = $value['connection'];
             unset($value['connection']);
         }
     
-        if (isset($value['em'])) {
+        if (array_key_exists('em', $value)) {
+            $this->_usedProperties['em'] = true;
             $this->em = $value['em'];
             unset($value['em']);
         }
     
-        if (isset($value['all_or_nothing'])) {
+        if (array_key_exists('all_or_nothing', $value)) {
+            $this->_usedProperties['allOrNothing'] = true;
             $this->allOrNothing = $value['all_or_nothing'];
             unset($value['all_or_nothing']);
         }
     
-        if (isset($value['check_database_platform'])) {
+        if (array_key_exists('check_database_platform', $value)) {
+            $this->_usedProperties['checkDatabasePlatform'] = true;
             $this->checkDatabasePlatform = $value['check_database_platform'];
             unset($value['check_database_platform']);
         }
     
-        if (isset($value['custom_template'])) {
+        if (array_key_exists('custom_template', $value)) {
+            $this->_usedProperties['customTemplate'] = true;
             $this->customTemplate = $value['custom_template'];
             unset($value['custom_template']);
         }
     
-        if (isset($value['organize_migrations'])) {
+        if (array_key_exists('organize_migrations', $value)) {
+            $this->_usedProperties['organizeMigrations'] = true;
             $this->organizeMigrations = $value['organize_migrations'];
             unset($value['organize_migrations']);
         }
     
-        if (isset($value['enable_profiler'])) {
+        if (array_key_exists('enable_profiler', $value)) {
+            $this->_usedProperties['enableProfiler'] = true;
             $this->enableProfiler = $value['enable_profiler'];
             unset($value['enable_profiler']);
         }
     
-        if (isset($value['transactional'])) {
+        if (array_key_exists('transactional', $value)) {
+            $this->_usedProperties['transactional'] = true;
             $this->transactional = $value['transactional'];
             unset($value['transactional']);
         }
@@ -265,43 +292,43 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->migrationsPaths) {
+        if (isset($this->_usedProperties['migrationsPaths'])) {
             $output['migrations_paths'] = $this->migrationsPaths;
         }
-        if (null !== $this->services) {
+        if (isset($this->_usedProperties['services'])) {
             $output['services'] = $this->services;
         }
-        if (null !== $this->factories) {
+        if (isset($this->_usedProperties['factories'])) {
             $output['factories'] = $this->factories;
         }
-        if (null !== $this->storage) {
+        if (isset($this->_usedProperties['storage'])) {
             $output['storage'] = $this->storage->toArray();
         }
-        if (null !== $this->migrations) {
+        if (isset($this->_usedProperties['migrations'])) {
             $output['migrations'] = $this->migrations;
         }
-        if (null !== $this->connection) {
+        if (isset($this->_usedProperties['connection'])) {
             $output['connection'] = $this->connection;
         }
-        if (null !== $this->em) {
+        if (isset($this->_usedProperties['em'])) {
             $output['em'] = $this->em;
         }
-        if (null !== $this->allOrNothing) {
+        if (isset($this->_usedProperties['allOrNothing'])) {
             $output['all_or_nothing'] = $this->allOrNothing;
         }
-        if (null !== $this->checkDatabasePlatform) {
+        if (isset($this->_usedProperties['checkDatabasePlatform'])) {
             $output['check_database_platform'] = $this->checkDatabasePlatform;
         }
-        if (null !== $this->customTemplate) {
+        if (isset($this->_usedProperties['customTemplate'])) {
             $output['custom_template'] = $this->customTemplate;
         }
-        if (null !== $this->organizeMigrations) {
+        if (isset($this->_usedProperties['organizeMigrations'])) {
             $output['organize_migrations'] = $this->organizeMigrations;
         }
-        if (null !== $this->enableProfiler) {
+        if (isset($this->_usedProperties['enableProfiler'])) {
             $output['enable_profiler'] = $this->enableProfiler;
         }
-        if (null !== $this->transactional) {
+        if (isset($this->_usedProperties['transactional'])) {
             $output['transactional'] = $this->transactional;
         }
     

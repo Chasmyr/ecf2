@@ -9,7 +9,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class SerializerConfig 
 {
@@ -20,6 +20,7 @@ class SerializerConfig
     private $maxDepthHandler;
     private $mapping;
     private $defaultContext;
+    private $_usedProperties = [];
     
     /**
      * @default true
@@ -28,6 +29,7 @@ class SerializerConfig
      */
     public function enabled($value): static
     {
+        $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
     
         return $this;
@@ -40,6 +42,7 @@ class SerializerConfig
      */
     public function enableAnnotations($value): static
     {
+        $this->_usedProperties['enableAnnotations'] = true;
         $this->enableAnnotations = $value;
     
         return $this;
@@ -52,6 +55,7 @@ class SerializerConfig
      */
     public function nameConverter($value): static
     {
+        $this->_usedProperties['nameConverter'] = true;
         $this->nameConverter = $value;
     
         return $this;
@@ -64,6 +68,7 @@ class SerializerConfig
      */
     public function circularReferenceHandler($value): static
     {
+        $this->_usedProperties['circularReferenceHandler'] = true;
         $this->circularReferenceHandler = $value;
     
         return $this;
@@ -76,6 +81,7 @@ class SerializerConfig
      */
     public function maxDepthHandler($value): static
     {
+        $this->_usedProperties['maxDepthHandler'] = true;
         $this->maxDepthHandler = $value;
     
         return $this;
@@ -84,6 +90,7 @@ class SerializerConfig
     public function mapping(array $value = []): \Symfony\Config\Framework\Serializer\MappingConfig
     {
         if (null === $this->mapping) {
+            $this->_usedProperties['mapping'] = true;
             $this->mapping = new \Symfony\Config\Framework\Serializer\MappingConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().');
@@ -97,6 +104,7 @@ class SerializerConfig
      */
     public function defaultContext(string $name, mixed $value): static
     {
+        $this->_usedProperties['defaultContext'] = true;
         $this->defaultContext[$name] = $value;
     
         return $this;
@@ -105,37 +113,44 @@ class SerializerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['enabled'])) {
+        if (array_key_exists('enabled', $value)) {
+            $this->_usedProperties['enabled'] = true;
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
     
-        if (isset($value['enable_annotations'])) {
+        if (array_key_exists('enable_annotations', $value)) {
+            $this->_usedProperties['enableAnnotations'] = true;
             $this->enableAnnotations = $value['enable_annotations'];
             unset($value['enable_annotations']);
         }
     
-        if (isset($value['name_converter'])) {
+        if (array_key_exists('name_converter', $value)) {
+            $this->_usedProperties['nameConverter'] = true;
             $this->nameConverter = $value['name_converter'];
             unset($value['name_converter']);
         }
     
-        if (isset($value['circular_reference_handler'])) {
+        if (array_key_exists('circular_reference_handler', $value)) {
+            $this->_usedProperties['circularReferenceHandler'] = true;
             $this->circularReferenceHandler = $value['circular_reference_handler'];
             unset($value['circular_reference_handler']);
         }
     
-        if (isset($value['max_depth_handler'])) {
+        if (array_key_exists('max_depth_handler', $value)) {
+            $this->_usedProperties['maxDepthHandler'] = true;
             $this->maxDepthHandler = $value['max_depth_handler'];
             unset($value['max_depth_handler']);
         }
     
-        if (isset($value['mapping'])) {
+        if (array_key_exists('mapping', $value)) {
+            $this->_usedProperties['mapping'] = true;
             $this->mapping = new \Symfony\Config\Framework\Serializer\MappingConfig($value['mapping']);
             unset($value['mapping']);
         }
     
-        if (isset($value['default_context'])) {
+        if (array_key_exists('default_context', $value)) {
+            $this->_usedProperties['defaultContext'] = true;
             $this->defaultContext = $value['default_context'];
             unset($value['default_context']);
         }
@@ -148,25 +163,25 @@ class SerializerConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->enabled) {
+        if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (null !== $this->enableAnnotations) {
+        if (isset($this->_usedProperties['enableAnnotations'])) {
             $output['enable_annotations'] = $this->enableAnnotations;
         }
-        if (null !== $this->nameConverter) {
+        if (isset($this->_usedProperties['nameConverter'])) {
             $output['name_converter'] = $this->nameConverter;
         }
-        if (null !== $this->circularReferenceHandler) {
+        if (isset($this->_usedProperties['circularReferenceHandler'])) {
             $output['circular_reference_handler'] = $this->circularReferenceHandler;
         }
-        if (null !== $this->maxDepthHandler) {
+        if (isset($this->_usedProperties['maxDepthHandler'])) {
             $output['max_depth_handler'] = $this->maxDepthHandler;
         }
-        if (null !== $this->mapping) {
+        if (isset($this->_usedProperties['mapping'])) {
             $output['mapping'] = $this->mapping->toArray();
         }
-        if (null !== $this->defaultContext) {
+        if (isset($this->_usedProperties['defaultContext'])) {
             $output['default_context'] = $this->defaultContext;
         }
     

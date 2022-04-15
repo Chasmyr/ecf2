@@ -8,12 +8,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class SecurityConfig 
 {
     private $annotations;
     private $expressionLanguage;
+    private $_usedProperties = [];
     
     /**
      * @default true
@@ -22,6 +23,7 @@ class SecurityConfig
      */
     public function annotations($value): static
     {
+        $this->_usedProperties['annotations'] = true;
         $this->annotations = $value;
     
         return $this;
@@ -34,6 +36,7 @@ class SecurityConfig
      */
     public function expressionLanguage($value): static
     {
+        $this->_usedProperties['expressionLanguage'] = true;
         $this->expressionLanguage = $value;
     
         return $this;
@@ -42,12 +45,14 @@ class SecurityConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['annotations'])) {
+        if (array_key_exists('annotations', $value)) {
+            $this->_usedProperties['annotations'] = true;
             $this->annotations = $value['annotations'];
             unset($value['annotations']);
         }
     
-        if (isset($value['expression_language'])) {
+        if (array_key_exists('expression_language', $value)) {
+            $this->_usedProperties['expressionLanguage'] = true;
             $this->expressionLanguage = $value['expression_language'];
             unset($value['expression_language']);
         }
@@ -60,10 +65,10 @@ class SecurityConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->annotations) {
+        if (isset($this->_usedProperties['annotations'])) {
             $output['annotations'] = $this->annotations;
         }
-        if (null !== $this->expressionLanguage) {
+        if (isset($this->_usedProperties['expressionLanguage'])) {
             $output['expression_language'] = $this->expressionLanguage;
         }
     

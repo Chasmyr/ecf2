@@ -14,7 +14,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -25,10 +25,12 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     private $cssinliner;
     private $inky;
     private $string;
+    private $_usedProperties = [];
     
     public function cache(array $value = []): \Symfony\Config\TwigExtra\CacheConfig
     {
         if (null === $this->cache) {
+            $this->_usedProperties['cache'] = true;
             $this->cache = new \Symfony\Config\TwigExtra\CacheConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "cache()" has already been initialized. You cannot pass values the second time you call cache().');
@@ -40,6 +42,7 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function html(array $value = []): \Symfony\Config\TwigExtra\HtmlConfig
     {
         if (null === $this->html) {
+            $this->_usedProperties['html'] = true;
             $this->html = new \Symfony\Config\TwigExtra\HtmlConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "html()" has already been initialized. You cannot pass values the second time you call html().');
@@ -51,6 +54,7 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function markdown(array $value = []): \Symfony\Config\TwigExtra\MarkdownConfig
     {
         if (null === $this->markdown) {
+            $this->_usedProperties['markdown'] = true;
             $this->markdown = new \Symfony\Config\TwigExtra\MarkdownConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "markdown()" has already been initialized. You cannot pass values the second time you call markdown().');
@@ -62,6 +66,7 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function intl(array $value = []): \Symfony\Config\TwigExtra\IntlConfig
     {
         if (null === $this->intl) {
+            $this->_usedProperties['intl'] = true;
             $this->intl = new \Symfony\Config\TwigExtra\IntlConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "intl()" has already been initialized. You cannot pass values the second time you call intl().');
@@ -73,6 +78,7 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function cssinliner(array $value = []): \Symfony\Config\TwigExtra\CssinlinerConfig
     {
         if (null === $this->cssinliner) {
+            $this->_usedProperties['cssinliner'] = true;
             $this->cssinliner = new \Symfony\Config\TwigExtra\CssinlinerConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "cssinliner()" has already been initialized. You cannot pass values the second time you call cssinliner().');
@@ -84,6 +90,7 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function inky(array $value = []): \Symfony\Config\TwigExtra\InkyConfig
     {
         if (null === $this->inky) {
+            $this->_usedProperties['inky'] = true;
             $this->inky = new \Symfony\Config\TwigExtra\InkyConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "inky()" has already been initialized. You cannot pass values the second time you call inky().');
@@ -95,6 +102,7 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function string(array $value = []): \Symfony\Config\TwigExtra\StringConfig
     {
         if (null === $this->string) {
+            $this->_usedProperties['string'] = true;
             $this->string = new \Symfony\Config\TwigExtra\StringConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "string()" has already been initialized. You cannot pass values the second time you call string().');
@@ -111,37 +119,44 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function __construct(array $value = [])
     {
     
-        if (isset($value['cache'])) {
+        if (array_key_exists('cache', $value)) {
+            $this->_usedProperties['cache'] = true;
             $this->cache = new \Symfony\Config\TwigExtra\CacheConfig($value['cache']);
             unset($value['cache']);
         }
     
-        if (isset($value['html'])) {
+        if (array_key_exists('html', $value)) {
+            $this->_usedProperties['html'] = true;
             $this->html = new \Symfony\Config\TwigExtra\HtmlConfig($value['html']);
             unset($value['html']);
         }
     
-        if (isset($value['markdown'])) {
+        if (array_key_exists('markdown', $value)) {
+            $this->_usedProperties['markdown'] = true;
             $this->markdown = new \Symfony\Config\TwigExtra\MarkdownConfig($value['markdown']);
             unset($value['markdown']);
         }
     
-        if (isset($value['intl'])) {
+        if (array_key_exists('intl', $value)) {
+            $this->_usedProperties['intl'] = true;
             $this->intl = new \Symfony\Config\TwigExtra\IntlConfig($value['intl']);
             unset($value['intl']);
         }
     
-        if (isset($value['cssinliner'])) {
+        if (array_key_exists('cssinliner', $value)) {
+            $this->_usedProperties['cssinliner'] = true;
             $this->cssinliner = new \Symfony\Config\TwigExtra\CssinlinerConfig($value['cssinliner']);
             unset($value['cssinliner']);
         }
     
-        if (isset($value['inky'])) {
+        if (array_key_exists('inky', $value)) {
+            $this->_usedProperties['inky'] = true;
             $this->inky = new \Symfony\Config\TwigExtra\InkyConfig($value['inky']);
             unset($value['inky']);
         }
     
-        if (isset($value['string'])) {
+        if (array_key_exists('string', $value)) {
+            $this->_usedProperties['string'] = true;
             $this->string = new \Symfony\Config\TwigExtra\StringConfig($value['string']);
             unset($value['string']);
         }
@@ -154,25 +169,25 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->cache) {
+        if (isset($this->_usedProperties['cache'])) {
             $output['cache'] = $this->cache->toArray();
         }
-        if (null !== $this->html) {
+        if (isset($this->_usedProperties['html'])) {
             $output['html'] = $this->html->toArray();
         }
-        if (null !== $this->markdown) {
+        if (isset($this->_usedProperties['markdown'])) {
             $output['markdown'] = $this->markdown->toArray();
         }
-        if (null !== $this->intl) {
+        if (isset($this->_usedProperties['intl'])) {
             $output['intl'] = $this->intl->toArray();
         }
-        if (null !== $this->cssinliner) {
+        if (isset($this->_usedProperties['cssinliner'])) {
             $output['cssinliner'] = $this->cssinliner->toArray();
         }
-        if (null !== $this->inky) {
+        if (isset($this->_usedProperties['inky'])) {
             $output['inky'] = $this->inky->toArray();
         }
-        if (null !== $this->string) {
+        if (isset($this->_usedProperties['string'])) {
             $output['string'] = $this->string->toArray();
         }
     

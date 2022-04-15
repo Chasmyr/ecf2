@@ -8,12 +8,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class LockConfig 
 {
     private $enabled;
     private $resources;
+    private $_usedProperties = [];
     
     /**
      * @default false
@@ -22,6 +23,7 @@ class LockConfig
      */
     public function enabled($value): static
     {
+        $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
     
         return $this;
@@ -32,6 +34,7 @@ class LockConfig
      */
     public function resource(string $name, ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['resources'] = true;
         $this->resources[$name] = $value;
     
         return $this;
@@ -40,12 +43,14 @@ class LockConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['enabled'])) {
+        if (array_key_exists('enabled', $value)) {
+            $this->_usedProperties['enabled'] = true;
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
     
-        if (isset($value['resources'])) {
+        if (array_key_exists('resources', $value)) {
+            $this->_usedProperties['resources'] = true;
             $this->resources = $value['resources'];
             unset($value['resources']);
         }
@@ -58,10 +63,10 @@ class LockConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->enabled) {
+        if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (null !== $this->resources) {
+        if (isset($this->_usedProperties['resources'])) {
             $output['resources'] = $this->resources;
         }
     

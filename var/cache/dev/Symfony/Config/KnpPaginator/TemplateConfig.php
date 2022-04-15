@@ -8,13 +8,14 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class TemplateConfig 
 {
     private $pagination;
     private $filtration;
     private $sortable;
+    private $_usedProperties = [];
     
     /**
      * @default '@KnpPaginator/Pagination/sliding.html.twig'
@@ -23,6 +24,7 @@ class TemplateConfig
      */
     public function pagination($value): static
     {
+        $this->_usedProperties['pagination'] = true;
         $this->pagination = $value;
     
         return $this;
@@ -35,6 +37,7 @@ class TemplateConfig
      */
     public function filtration($value): static
     {
+        $this->_usedProperties['filtration'] = true;
         $this->filtration = $value;
     
         return $this;
@@ -47,6 +50,7 @@ class TemplateConfig
      */
     public function sortable($value): static
     {
+        $this->_usedProperties['sortable'] = true;
         $this->sortable = $value;
     
         return $this;
@@ -55,17 +59,20 @@ class TemplateConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['pagination'])) {
+        if (array_key_exists('pagination', $value)) {
+            $this->_usedProperties['pagination'] = true;
             $this->pagination = $value['pagination'];
             unset($value['pagination']);
         }
     
-        if (isset($value['filtration'])) {
+        if (array_key_exists('filtration', $value)) {
+            $this->_usedProperties['filtration'] = true;
             $this->filtration = $value['filtration'];
             unset($value['filtration']);
         }
     
-        if (isset($value['sortable'])) {
+        if (array_key_exists('sortable', $value)) {
+            $this->_usedProperties['sortable'] = true;
             $this->sortable = $value['sortable'];
             unset($value['sortable']);
         }
@@ -78,13 +85,13 @@ class TemplateConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->pagination) {
+        if (isset($this->_usedProperties['pagination'])) {
             $output['pagination'] = $this->pagination;
         }
-        if (null !== $this->filtration) {
+        if (isset($this->_usedProperties['filtration'])) {
             $output['filtration'] = $this->filtration;
         }
-        if (null !== $this->sortable) {
+        if (isset($this->_usedProperties['sortable'])) {
             $output['sortable'] = $this->sortable;
         }
     

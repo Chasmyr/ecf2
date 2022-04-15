@@ -10,13 +10,14 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class DbalConfig 
 {
     private $defaultConnection;
     private $types;
     private $connections;
+    private $_usedProperties = [];
     
     /**
      * @default null
@@ -25,6 +26,7 @@ class DbalConfig
      */
     public function defaultConnection($value): static
     {
+        $this->_usedProperties['defaultConnection'] = true;
         $this->defaultConnection = $value;
     
         return $this;
@@ -33,6 +35,8 @@ class DbalConfig
     public function type(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\TypeConfig
     {
         if (!isset($this->types[$name])) {
+            $this->_usedProperties['types'] = true;
+    
             return $this->types[$name] = new \Symfony\Config\Doctrine\Dbal\TypeConfig($value);
         }
         if ([] === $value) {
@@ -45,6 +49,8 @@ class DbalConfig
     public function connection(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig
     {
         if (!isset($this->connections[$name])) {
+            $this->_usedProperties['connections'] = true;
+    
             return $this->connections[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig($value);
         }
         if ([] === $value) {
@@ -57,17 +63,20 @@ class DbalConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['default_connection'])) {
+        if (array_key_exists('default_connection', $value)) {
+            $this->_usedProperties['defaultConnection'] = true;
             $this->defaultConnection = $value['default_connection'];
             unset($value['default_connection']);
         }
     
-        if (isset($value['types'])) {
+        if (array_key_exists('types', $value)) {
+            $this->_usedProperties['types'] = true;
             $this->types = array_map(function ($v) { return new \Symfony\Config\Doctrine\Dbal\TypeConfig($v); }, $value['types']);
             unset($value['types']);
         }
     
-        if (isset($value['connections'])) {
+        if (array_key_exists('connections', $value)) {
+            $this->_usedProperties['connections'] = true;
             $this->connections = array_map(function ($v) { return new \Symfony\Config\Doctrine\Dbal\ConnectionConfig($v); }, $value['connections']);
             unset($value['connections']);
         }
@@ -80,13 +89,13 @@ class DbalConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->defaultConnection) {
+        if (isset($this->_usedProperties['defaultConnection'])) {
             $output['default_connection'] = $this->defaultConnection;
         }
-        if (null !== $this->types) {
+        if (isset($this->_usedProperties['types'])) {
             $output['types'] = array_map(function ($v) { return $v->toArray(); }, $this->types);
         }
-        if (null !== $this->connections) {
+        if (isset($this->_usedProperties['connections'])) {
             $output['connections'] = array_map(function ($v) { return $v->toArray(); }, $this->connections);
         }
     

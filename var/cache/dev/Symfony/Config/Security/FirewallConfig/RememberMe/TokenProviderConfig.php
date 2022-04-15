@@ -9,12 +9,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class TokenProviderConfig 
 {
     private $service;
     private $doctrine;
+    private $_usedProperties = [];
     
     /**
      * The service ID of a custom rememberme token provider.
@@ -24,6 +25,7 @@ class TokenProviderConfig
      */
     public function service($value): static
     {
+        $this->_usedProperties['service'] = true;
         $this->service = $value;
     
         return $this;
@@ -32,6 +34,7 @@ class TokenProviderConfig
     public function doctrine(array $value = []): \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProvider\DoctrineConfig
     {
         if (null === $this->doctrine) {
+            $this->_usedProperties['doctrine'] = true;
             $this->doctrine = new \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProvider\DoctrineConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "doctrine()" has already been initialized. You cannot pass values the second time you call doctrine().');
@@ -43,12 +46,14 @@ class TokenProviderConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['service'])) {
+        if (array_key_exists('service', $value)) {
+            $this->_usedProperties['service'] = true;
             $this->service = $value['service'];
             unset($value['service']);
         }
     
-        if (isset($value['doctrine'])) {
+        if (array_key_exists('doctrine', $value)) {
+            $this->_usedProperties['doctrine'] = true;
             $this->doctrine = new \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProvider\DoctrineConfig($value['doctrine']);
             unset($value['doctrine']);
         }
@@ -61,10 +66,10 @@ class TokenProviderConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->service) {
+        if (isset($this->_usedProperties['service'])) {
             $output['service'] = $this->service;
         }
-        if (null !== $this->doctrine) {
+        if (isset($this->_usedProperties['doctrine'])) {
             $output['doctrine'] = $this->doctrine->toArray();
         }
     

@@ -8,13 +8,14 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class WebProfilerConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
     private $toolbar;
     private $interceptRedirects;
     private $excludedAjaxPaths;
+    private $_usedProperties = [];
     
     /**
      * @default false
@@ -23,6 +24,7 @@ class WebProfilerConfig implements \Symfony\Component\Config\Builder\ConfigBuild
      */
     public function toolbar($value): static
     {
+        $this->_usedProperties['toolbar'] = true;
         $this->toolbar = $value;
     
         return $this;
@@ -35,6 +37,7 @@ class WebProfilerConfig implements \Symfony\Component\Config\Builder\ConfigBuild
      */
     public function interceptRedirects($value): static
     {
+        $this->_usedProperties['interceptRedirects'] = true;
         $this->interceptRedirects = $value;
     
         return $this;
@@ -47,6 +50,7 @@ class WebProfilerConfig implements \Symfony\Component\Config\Builder\ConfigBuild
      */
     public function excludedAjaxPaths($value): static
     {
+        $this->_usedProperties['excludedAjaxPaths'] = true;
         $this->excludedAjaxPaths = $value;
     
         return $this;
@@ -60,17 +64,20 @@ class WebProfilerConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     public function __construct(array $value = [])
     {
     
-        if (isset($value['toolbar'])) {
+        if (array_key_exists('toolbar', $value)) {
+            $this->_usedProperties['toolbar'] = true;
             $this->toolbar = $value['toolbar'];
             unset($value['toolbar']);
         }
     
-        if (isset($value['intercept_redirects'])) {
+        if (array_key_exists('intercept_redirects', $value)) {
+            $this->_usedProperties['interceptRedirects'] = true;
             $this->interceptRedirects = $value['intercept_redirects'];
             unset($value['intercept_redirects']);
         }
     
-        if (isset($value['excluded_ajax_paths'])) {
+        if (array_key_exists('excluded_ajax_paths', $value)) {
+            $this->_usedProperties['excludedAjaxPaths'] = true;
             $this->excludedAjaxPaths = $value['excluded_ajax_paths'];
             unset($value['excluded_ajax_paths']);
         }
@@ -83,13 +90,13 @@ class WebProfilerConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->toolbar) {
+        if (isset($this->_usedProperties['toolbar'])) {
             $output['toolbar'] = $this->toolbar;
         }
-        if (null !== $this->interceptRedirects) {
+        if (isset($this->_usedProperties['interceptRedirects'])) {
             $output['intercept_redirects'] = $this->interceptRedirects;
         }
-        if (null !== $this->excludedAjaxPaths) {
+        if (isset($this->_usedProperties['excludedAjaxPaths'])) {
             $output['excluded_ajax_paths'] = $this->excludedAjaxPaths;
         }
     

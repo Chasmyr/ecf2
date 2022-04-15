@@ -8,12 +8,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class RequestConfig 
 {
     private $enabled;
     private $formats;
+    private $_usedProperties = [];
     
     /**
      * @default false
@@ -22,6 +23,7 @@ class RequestConfig
      */
     public function enabled($value): static
     {
+        $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
     
         return $this;
@@ -32,6 +34,7 @@ class RequestConfig
      */
     public function format(string $name, ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['formats'] = true;
         $this->formats[$name] = $value;
     
         return $this;
@@ -40,12 +43,14 @@ class RequestConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['enabled'])) {
+        if (array_key_exists('enabled', $value)) {
+            $this->_usedProperties['enabled'] = true;
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
     
-        if (isset($value['formats'])) {
+        if (array_key_exists('formats', $value)) {
+            $this->_usedProperties['formats'] = true;
             $this->formats = $value['formats'];
             unset($value['formats']);
         }
@@ -58,10 +63,10 @@ class RequestConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->enabled) {
+        if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (null !== $this->formats) {
+        if (isset($this->_usedProperties['formats'])) {
             $output['formats'] = $this->formats;
         }
     

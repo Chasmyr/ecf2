@@ -222,6 +222,6 @@ class __TwigTemplate_bd3919b1593b05b986f00bf24e54b9f7f4cb1f0742d70a50b3fc0040e30
     
 
 
-{% endblock %}", "security/registrationUser.html.twig", "E:\\ecf\\ECF\\templates\\security\\registrationUser.html.twig");
+{% endblock %}", "security/registrationUser.html.twig", "E:\\ecf2\\templates\\security\\registrationUser.html.twig");
     }
 }

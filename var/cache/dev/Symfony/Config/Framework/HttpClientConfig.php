@@ -10,7 +10,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class HttpClientConfig 
 {
@@ -19,6 +19,7 @@ class HttpClientConfig
     private $defaultOptions;
     private $mockResponseFactory;
     private $scopedClients;
+    private $_usedProperties = [];
     
     /**
      * @default true
@@ -27,6 +28,7 @@ class HttpClientConfig
      */
     public function enabled($value): static
     {
+        $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
     
         return $this;
@@ -40,6 +42,7 @@ class HttpClientConfig
      */
     public function maxHostConnections($value): static
     {
+        $this->_usedProperties['maxHostConnections'] = true;
         $this->maxHostConnections = $value;
     
         return $this;
@@ -48,6 +51,7 @@ class HttpClientConfig
     public function defaultOptions(array $value = []): \Symfony\Config\Framework\HttpClient\DefaultOptionsConfig
     {
         if (null === $this->defaultOptions) {
+            $this->_usedProperties['defaultOptions'] = true;
             $this->defaultOptions = new \Symfony\Config\Framework\HttpClient\DefaultOptionsConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "defaultOptions()" has already been initialized. You cannot pass values the second time you call defaultOptions().');
@@ -64,6 +68,7 @@ class HttpClientConfig
      */
     public function mockResponseFactory($value): static
     {
+        $this->_usedProperties['mockResponseFactory'] = true;
         $this->mockResponseFactory = $value;
     
         return $this;
@@ -72,6 +77,8 @@ class HttpClientConfig
     public function scopedClient(string $name, array $value = []): \Symfony\Config\Framework\HttpClient\ScopedClientConfig
     {
         if (!isset($this->scopedClients[$name])) {
+            $this->_usedProperties['scopedClients'] = true;
+    
             return $this->scopedClients[$name] = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($value);
         }
         if ([] === $value) {
@@ -84,27 +91,32 @@ class HttpClientConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['enabled'])) {
+        if (array_key_exists('enabled', $value)) {
+            $this->_usedProperties['enabled'] = true;
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
     
-        if (isset($value['max_host_connections'])) {
+        if (array_key_exists('max_host_connections', $value)) {
+            $this->_usedProperties['maxHostConnections'] = true;
             $this->maxHostConnections = $value['max_host_connections'];
             unset($value['max_host_connections']);
         }
     
-        if (isset($value['default_options'])) {
+        if (array_key_exists('default_options', $value)) {
+            $this->_usedProperties['defaultOptions'] = true;
             $this->defaultOptions = new \Symfony\Config\Framework\HttpClient\DefaultOptionsConfig($value['default_options']);
             unset($value['default_options']);
         }
     
-        if (isset($value['mock_response_factory'])) {
+        if (array_key_exists('mock_response_factory', $value)) {
+            $this->_usedProperties['mockResponseFactory'] = true;
             $this->mockResponseFactory = $value['mock_response_factory'];
             unset($value['mock_response_factory']);
         }
     
-        if (isset($value['scoped_clients'])) {
+        if (array_key_exists('scoped_clients', $value)) {
+            $this->_usedProperties['scopedClients'] = true;
             $this->scopedClients = array_map(function ($v) { return new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($v); }, $value['scoped_clients']);
             unset($value['scoped_clients']);
         }
@@ -117,19 +129,19 @@ class HttpClientConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->enabled) {
+        if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (null !== $this->maxHostConnections) {
+        if (isset($this->_usedProperties['maxHostConnections'])) {
             $output['max_host_connections'] = $this->maxHostConnections;
         }
-        if (null !== $this->defaultOptions) {
+        if (isset($this->_usedProperties['defaultOptions'])) {
             $output['default_options'] = $this->defaultOptions->toArray();
         }
-        if (null !== $this->mockResponseFactory) {
+        if (isset($this->_usedProperties['mockResponseFactory'])) {
             $output['mock_response_factory'] = $this->mockResponseFactory;
         }
-        if (null !== $this->scopedClients) {
+        if (isset($this->_usedProperties['scopedClients'])) {
             $output['scoped_clients'] = array_map(function ($v) { return $v->toArray(); }, $this->scopedClients);
         }
     

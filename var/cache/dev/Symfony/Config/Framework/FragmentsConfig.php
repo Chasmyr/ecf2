@@ -8,13 +8,14 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class FragmentsConfig 
 {
     private $enabled;
     private $hincludeDefaultTemplate;
     private $path;
+    private $_usedProperties = [];
     
     /**
      * @default false
@@ -23,6 +24,7 @@ class FragmentsConfig
      */
     public function enabled($value): static
     {
+        $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
     
         return $this;
@@ -35,6 +37,7 @@ class FragmentsConfig
      */
     public function hincludeDefaultTemplate($value): static
     {
+        $this->_usedProperties['hincludeDefaultTemplate'] = true;
         $this->hincludeDefaultTemplate = $value;
     
         return $this;
@@ -47,6 +50,7 @@ class FragmentsConfig
      */
     public function path($value): static
     {
+        $this->_usedProperties['path'] = true;
         $this->path = $value;
     
         return $this;
@@ -55,17 +59,20 @@ class FragmentsConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['enabled'])) {
+        if (array_key_exists('enabled', $value)) {
+            $this->_usedProperties['enabled'] = true;
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
     
-        if (isset($value['hinclude_default_template'])) {
+        if (array_key_exists('hinclude_default_template', $value)) {
+            $this->_usedProperties['hincludeDefaultTemplate'] = true;
             $this->hincludeDefaultTemplate = $value['hinclude_default_template'];
             unset($value['hinclude_default_template']);
         }
     
-        if (isset($value['path'])) {
+        if (array_key_exists('path', $value)) {
+            $this->_usedProperties['path'] = true;
             $this->path = $value['path'];
             unset($value['path']);
         }
@@ -78,13 +85,13 @@ class FragmentsConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->enabled) {
+        if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (null !== $this->hincludeDefaultTemplate) {
+        if (isset($this->_usedProperties['hincludeDefaultTemplate'])) {
             $output['hinclude_default_template'] = $this->hincludeDefaultTemplate;
         }
-        if (null !== $this->path) {
+        if (isset($this->_usedProperties['path'])) {
             $output['path'] = $this->path;
         }
     

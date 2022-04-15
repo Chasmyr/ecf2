@@ -9,12 +9,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class RateLimiterConfig 
 {
     private $enabled;
     private $limiters;
+    private $_usedProperties = [];
     
     /**
      * @default false
@@ -23,6 +24,7 @@ class RateLimiterConfig
      */
     public function enabled($value): static
     {
+        $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
     
         return $this;
@@ -31,6 +33,8 @@ class RateLimiterConfig
     public function limiter(string $name, array $value = []): \Symfony\Config\Framework\RateLimiter\LimiterConfig
     {
         if (!isset($this->limiters[$name])) {
+            $this->_usedProperties['limiters'] = true;
+    
             return $this->limiters[$name] = new \Symfony\Config\Framework\RateLimiter\LimiterConfig($value);
         }
         if ([] === $value) {
@@ -43,12 +47,14 @@ class RateLimiterConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['enabled'])) {
+        if (array_key_exists('enabled', $value)) {
+            $this->_usedProperties['enabled'] = true;
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
     
-        if (isset($value['limiters'])) {
+        if (array_key_exists('limiters', $value)) {
+            $this->_usedProperties['limiters'] = true;
             $this->limiters = array_map(function ($v) { return new \Symfony\Config\Framework\RateLimiter\LimiterConfig($v); }, $value['limiters']);
             unset($value['limiters']);
         }
@@ -61,10 +67,10 @@ class RateLimiterConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->enabled) {
+        if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (null !== $this->limiters) {
+        if (isset($this->_usedProperties['limiters'])) {
             $output['limiters'] = array_map(function ($v) { return $v->toArray(); }, $this->limiters);
         }
     

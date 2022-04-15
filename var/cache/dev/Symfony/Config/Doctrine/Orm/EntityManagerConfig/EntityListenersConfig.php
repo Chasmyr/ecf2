@@ -8,15 +8,18 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class EntityListenersConfig 
 {
     private $entities;
+    private $_usedProperties = [];
     
     public function entity(string $class, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig
     {
         if (!isset($this->entities[$class])) {
+            $this->_usedProperties['entities'] = true;
+    
             return $this->entities[$class] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig($value);
         }
         if ([] === $value) {
@@ -29,7 +32,8 @@ class EntityListenersConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['entities'])) {
+        if (array_key_exists('entities', $value)) {
+            $this->_usedProperties['entities'] = true;
             $this->entities = array_map(function ($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig($v); }, $value['entities']);
             unset($value['entities']);
         }
@@ -42,7 +46,7 @@ class EntityListenersConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->entities) {
+        if (isset($this->_usedProperties['entities'])) {
             $output['entities'] = array_map(function ($v) { return $v->toArray(); }, $this->entities);
         }
     

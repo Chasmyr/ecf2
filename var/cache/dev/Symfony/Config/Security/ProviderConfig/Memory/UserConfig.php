@@ -8,12 +8,13 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class UserConfig 
 {
     private $password;
     private $roles;
+    private $_usedProperties = [];
     
     /**
      * @default null
@@ -22,6 +23,7 @@ class UserConfig
      */
     public function password($value): static
     {
+        $this->_usedProperties['password'] = true;
         $this->password = $value;
     
         return $this;
@@ -34,6 +36,7 @@ class UserConfig
      */
     public function roles(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['roles'] = true;
         $this->roles = $value;
     
         return $this;
@@ -42,12 +45,14 @@ class UserConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['password'])) {
+        if (array_key_exists('password', $value)) {
+            $this->_usedProperties['password'] = true;
             $this->password = $value['password'];
             unset($value['password']);
         }
     
-        if (isset($value['roles'])) {
+        if (array_key_exists('roles', $value)) {
+            $this->_usedProperties['roles'] = true;
             $this->roles = $value['roles'];
             unset($value['roles']);
         }
@@ -60,10 +65,10 @@ class UserConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->password) {
+        if (isset($this->_usedProperties['password'])) {
             $output['password'] = $this->password;
         }
-        if (null !== $this->roles) {
+        if (isset($this->_usedProperties['roles'])) {
             $output['roles'] = $this->roles;
         }
     

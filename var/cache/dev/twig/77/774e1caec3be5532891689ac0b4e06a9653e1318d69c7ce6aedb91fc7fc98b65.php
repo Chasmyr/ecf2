@@ -66,6 +66,6 @@ class __TwigTemplate_6b3ea80c81ffa00b9d943fb0daf56d962166444a3cdf05a1f99e04b0de5
 
     public function getSourceContext()
     {
-        return new Source("{{ knp_pagination_render(formations) }}", "formation/_pagination.html.twig", "E:\\ecf\\ECF\\templates\\formation\\_pagination.html.twig");
+        return new Source("{{ knp_pagination_render(formations) }}", "formation/_pagination.html.twig", "E:\\ecf2\\templates\\formation\\_pagination.html.twig");
     }
 }

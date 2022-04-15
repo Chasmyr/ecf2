@@ -8,11 +8,12 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class MappingConfig 
 {
     private $paths;
+    private $_usedProperties = [];
     
     /**
      * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
@@ -21,6 +22,7 @@ class MappingConfig
      */
     public function paths(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['paths'] = true;
         $this->paths = $value;
     
         return $this;
@@ -29,7 +31,8 @@ class MappingConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['paths'])) {
+        if (array_key_exists('paths', $value)) {
+            $this->_usedProperties['paths'] = true;
             $this->paths = $value['paths'];
             unset($value['paths']);
         }
@@ -42,7 +45,7 @@ class MappingConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->paths) {
+        if (isset($this->_usedProperties['paths'])) {
             $output['paths'] = $this->paths;
         }
     

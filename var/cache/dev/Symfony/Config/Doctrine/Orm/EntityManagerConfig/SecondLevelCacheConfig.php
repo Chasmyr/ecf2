@@ -11,7 +11,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class SecondLevelCacheConfig 
 {
@@ -23,10 +23,12 @@ class SecondLevelCacheConfig
     private $factory;
     private $regions;
     private $loggers;
+    private $_usedProperties = [];
     
     public function regionCacheDriver(array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionCacheDriverConfig
     {
         if (null === $this->regionCacheDriver) {
+            $this->_usedProperties['regionCacheDriver'] = true;
             $this->regionCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionCacheDriverConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "regionCacheDriver()" has already been initialized. You cannot pass values the second time you call regionCacheDriver().');
@@ -42,6 +44,7 @@ class SecondLevelCacheConfig
      */
     public function regionLockLifetime($value): static
     {
+        $this->_usedProperties['regionLockLifetime'] = true;
         $this->regionLockLifetime = $value;
     
         return $this;
@@ -54,6 +57,7 @@ class SecondLevelCacheConfig
      */
     public function logEnabled($value): static
     {
+        $this->_usedProperties['logEnabled'] = true;
         $this->logEnabled = $value;
     
         return $this;
@@ -66,6 +70,7 @@ class SecondLevelCacheConfig
      */
     public function regionLifetime($value): static
     {
+        $this->_usedProperties['regionLifetime'] = true;
         $this->regionLifetime = $value;
     
         return $this;
@@ -78,6 +83,7 @@ class SecondLevelCacheConfig
      */
     public function enabled($value): static
     {
+        $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
     
         return $this;
@@ -90,6 +96,7 @@ class SecondLevelCacheConfig
      */
     public function factory($value): static
     {
+        $this->_usedProperties['factory'] = true;
         $this->factory = $value;
     
         return $this;
@@ -98,6 +105,8 @@ class SecondLevelCacheConfig
     public function region(string $name, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig
     {
         if (!isset($this->regions[$name])) {
+            $this->_usedProperties['regions'] = true;
+    
             return $this->regions[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig($value);
         }
         if ([] === $value) {
@@ -110,6 +119,8 @@ class SecondLevelCacheConfig
     public function logger(string $name, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig
     {
         if (!isset($this->loggers[$name])) {
+            $this->_usedProperties['loggers'] = true;
+    
             return $this->loggers[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig($value);
         }
         if ([] === $value) {
@@ -122,42 +133,50 @@ class SecondLevelCacheConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['region_cache_driver'])) {
+        if (array_key_exists('region_cache_driver', $value)) {
+            $this->_usedProperties['regionCacheDriver'] = true;
             $this->regionCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionCacheDriverConfig($value['region_cache_driver']);
             unset($value['region_cache_driver']);
         }
     
-        if (isset($value['region_lock_lifetime'])) {
+        if (array_key_exists('region_lock_lifetime', $value)) {
+            $this->_usedProperties['regionLockLifetime'] = true;
             $this->regionLockLifetime = $value['region_lock_lifetime'];
             unset($value['region_lock_lifetime']);
         }
     
-        if (isset($value['log_enabled'])) {
+        if (array_key_exists('log_enabled', $value)) {
+            $this->_usedProperties['logEnabled'] = true;
             $this->logEnabled = $value['log_enabled'];
             unset($value['log_enabled']);
         }
     
-        if (isset($value['region_lifetime'])) {
+        if (array_key_exists('region_lifetime', $value)) {
+            $this->_usedProperties['regionLifetime'] = true;
             $this->regionLifetime = $value['region_lifetime'];
             unset($value['region_lifetime']);
         }
     
-        if (isset($value['enabled'])) {
+        if (array_key_exists('enabled', $value)) {
+            $this->_usedProperties['enabled'] = true;
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
     
-        if (isset($value['factory'])) {
+        if (array_key_exists('factory', $value)) {
+            $this->_usedProperties['factory'] = true;
             $this->factory = $value['factory'];
             unset($value['factory']);
         }
     
-        if (isset($value['regions'])) {
+        if (array_key_exists('regions', $value)) {
+            $this->_usedProperties['regions'] = true;
             $this->regions = array_map(function ($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig($v); }, $value['regions']);
             unset($value['regions']);
         }
     
-        if (isset($value['loggers'])) {
+        if (array_key_exists('loggers', $value)) {
+            $this->_usedProperties['loggers'] = true;
             $this->loggers = array_map(function ($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig($v); }, $value['loggers']);
             unset($value['loggers']);
         }
@@ -170,28 +189,28 @@ class SecondLevelCacheConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->regionCacheDriver) {
+        if (isset($this->_usedProperties['regionCacheDriver'])) {
             $output['region_cache_driver'] = $this->regionCacheDriver->toArray();
         }
-        if (null !== $this->regionLockLifetime) {
+        if (isset($this->_usedProperties['regionLockLifetime'])) {
             $output['region_lock_lifetime'] = $this->regionLockLifetime;
         }
-        if (null !== $this->logEnabled) {
+        if (isset($this->_usedProperties['logEnabled'])) {
             $output['log_enabled'] = $this->logEnabled;
         }
-        if (null !== $this->regionLifetime) {
+        if (isset($this->_usedProperties['regionLifetime'])) {
             $output['region_lifetime'] = $this->regionLifetime;
         }
-        if (null !== $this->enabled) {
+        if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (null !== $this->factory) {
+        if (isset($this->_usedProperties['factory'])) {
             $output['factory'] = $this->factory;
         }
-        if (null !== $this->regions) {
+        if (isset($this->_usedProperties['regions'])) {
             $output['regions'] = array_map(function ($v) { return $v->toArray(); }, $this->regions);
         }
-        if (null !== $this->loggers) {
+        if (isset($this->_usedProperties['loggers'])) {
             $output['loggers'] = array_map(function ($v) { return $v->toArray(); }, $this->loggers);
         }
     

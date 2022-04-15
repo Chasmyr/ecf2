@@ -10,7 +10,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class KnpPaginatorConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -18,10 +18,12 @@ class KnpPaginatorConfig implements \Symfony\Component\Config\Builder\ConfigBuil
     private $template;
     private $pageRange;
     private $pageLimit;
+    private $_usedProperties = [];
     
     public function defaultOptions(array $value = []): \Symfony\Config\KnpPaginator\DefaultOptionsConfig
     {
         if (null === $this->defaultOptions) {
+            $this->_usedProperties['defaultOptions'] = true;
             $this->defaultOptions = new \Symfony\Config\KnpPaginator\DefaultOptionsConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "defaultOptions()" has already been initialized. You cannot pass values the second time you call defaultOptions().');
@@ -33,6 +35,7 @@ class KnpPaginatorConfig implements \Symfony\Component\Config\Builder\ConfigBuil
     public function template(array $value = []): \Symfony\Config\KnpPaginator\TemplateConfig
     {
         if (null === $this->template) {
+            $this->_usedProperties['template'] = true;
             $this->template = new \Symfony\Config\KnpPaginator\TemplateConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "template()" has already been initialized. You cannot pass values the second time you call template().');
@@ -48,6 +51,7 @@ class KnpPaginatorConfig implements \Symfony\Component\Config\Builder\ConfigBuil
      */
     public function pageRange($value): static
     {
+        $this->_usedProperties['pageRange'] = true;
         $this->pageRange = $value;
     
         return $this;
@@ -60,6 +64,7 @@ class KnpPaginatorConfig implements \Symfony\Component\Config\Builder\ConfigBuil
      */
     public function pageLimit($value): static
     {
+        $this->_usedProperties['pageLimit'] = true;
         $this->pageLimit = $value;
     
         return $this;
@@ -73,22 +78,26 @@ class KnpPaginatorConfig implements \Symfony\Component\Config\Builder\ConfigBuil
     public function __construct(array $value = [])
     {
     
-        if (isset($value['default_options'])) {
+        if (array_key_exists('default_options', $value)) {
+            $this->_usedProperties['defaultOptions'] = true;
             $this->defaultOptions = new \Symfony\Config\KnpPaginator\DefaultOptionsConfig($value['default_options']);
             unset($value['default_options']);
         }
     
-        if (isset($value['template'])) {
+        if (array_key_exists('template', $value)) {
+            $this->_usedProperties['template'] = true;
             $this->template = new \Symfony\Config\KnpPaginator\TemplateConfig($value['template']);
             unset($value['template']);
         }
     
-        if (isset($value['page_range'])) {
+        if (array_key_exists('page_range', $value)) {
+            $this->_usedProperties['pageRange'] = true;
             $this->pageRange = $value['page_range'];
             unset($value['page_range']);
         }
     
-        if (isset($value['page_limit'])) {
+        if (array_key_exists('page_limit', $value)) {
+            $this->_usedProperties['pageLimit'] = true;
             $this->pageLimit = $value['page_limit'];
             unset($value['page_limit']);
         }
@@ -101,16 +110,16 @@ class KnpPaginatorConfig implements \Symfony\Component\Config\Builder\ConfigBuil
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->defaultOptions) {
+        if (isset($this->_usedProperties['defaultOptions'])) {
             $output['default_options'] = $this->defaultOptions->toArray();
         }
-        if (null !== $this->template) {
+        if (isset($this->_usedProperties['template'])) {
             $output['template'] = $this->template->toArray();
         }
-        if (null !== $this->pageRange) {
+        if (isset($this->_usedProperties['pageRange'])) {
             $output['page_range'] = $this->pageRange;
         }
-        if (null !== $this->pageLimit) {
+        if (isset($this->_usedProperties['pageLimit'])) {
             $output['page_limit'] = $this->pageLimit;
         }
     

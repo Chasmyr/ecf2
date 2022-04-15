@@ -10,7 +10,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
- * This class is automatically generated to help creating config.
+ * This class is automatically generated to help in creating a config.
  */
 class TranslatorConfig 
 {
@@ -23,6 +23,7 @@ class TranslatorConfig
     private $paths;
     private $pseudoLocalization;
     private $providers;
+    private $_usedProperties = [];
     
     /**
      * @default true
@@ -31,6 +32,7 @@ class TranslatorConfig
      */
     public function enabled($value): static
     {
+        $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
     
         return $this;
@@ -43,6 +45,7 @@ class TranslatorConfig
      */
     public function fallbacks(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['fallbacks'] = true;
         $this->fallbacks = $value;
     
         return $this;
@@ -55,6 +58,7 @@ class TranslatorConfig
      */
     public function logging($value): static
     {
+        $this->_usedProperties['logging'] = true;
         $this->logging = $value;
     
         return $this;
@@ -67,6 +71,7 @@ class TranslatorConfig
      */
     public function formatter($value): static
     {
+        $this->_usedProperties['formatter'] = true;
         $this->formatter = $value;
     
         return $this;
@@ -79,6 +84,7 @@ class TranslatorConfig
      */
     public function cacheDir($value): static
     {
+        $this->_usedProperties['cacheDir'] = true;
         $this->cacheDir = $value;
     
         return $this;
@@ -92,6 +98,7 @@ class TranslatorConfig
      */
     public function defaultPath($value): static
     {
+        $this->_usedProperties['defaultPath'] = true;
         $this->defaultPath = $value;
     
         return $this;
@@ -104,6 +111,7 @@ class TranslatorConfig
      */
     public function paths(ParamConfigurator|array $value): static
     {
+        $this->_usedProperties['paths'] = true;
         $this->paths = $value;
     
         return $this;
@@ -112,6 +120,7 @@ class TranslatorConfig
     public function pseudoLocalization(array $value = []): \Symfony\Config\Framework\Translator\PseudoLocalizationConfig
     {
         if (null === $this->pseudoLocalization) {
+            $this->_usedProperties['pseudoLocalization'] = true;
             $this->pseudoLocalization = new \Symfony\Config\Framework\Translator\PseudoLocalizationConfig($value);
         } elseif ([] !== $value) {
             throw new InvalidConfigurationException('The node created by "pseudoLocalization()" has already been initialized. You cannot pass values the second time you call pseudoLocalization().');
@@ -123,6 +132,8 @@ class TranslatorConfig
     public function provider(string $name, array $value = []): \Symfony\Config\Framework\Translator\ProviderConfig
     {
         if (!isset($this->providers[$name])) {
+            $this->_usedProperties['providers'] = true;
+    
             return $this->providers[$name] = new \Symfony\Config\Framework\Translator\ProviderConfig($value);
         }
         if ([] === $value) {
@@ -135,47 +146,56 @@ class TranslatorConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value['enabled'])) {
+        if (array_key_exists('enabled', $value)) {
+            $this->_usedProperties['enabled'] = true;
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
     
-        if (isset($value['fallbacks'])) {
+        if (array_key_exists('fallbacks', $value)) {
+            $this->_usedProperties['fallbacks'] = true;
             $this->fallbacks = $value['fallbacks'];
             unset($value['fallbacks']);
         }
     
-        if (isset($value['logging'])) {
+        if (array_key_exists('logging', $value)) {
+            $this->_usedProperties['logging'] = true;
             $this->logging = $value['logging'];
             unset($value['logging']);
         }
     
-        if (isset($value['formatter'])) {
+        if (array_key_exists('formatter', $value)) {
+            $this->_usedProperties['formatter'] = true;
             $this->formatter = $value['formatter'];
             unset($value['formatter']);
         }
     
-        if (isset($value['cache_dir'])) {
+        if (array_key_exists('cache_dir', $value)) {
+            $this->_usedProperties['cacheDir'] = true;
             $this->cacheDir = $value['cache_dir'];
             unset($value['cache_dir']);
         }
     
-        if (isset($value['default_path'])) {
+        if (array_key_exists('default_path', $value)) {
+            $this->_usedProperties['defaultPath'] = true;
             $this->defaultPath = $value['default_path'];
             unset($value['default_path']);
         }
     
-        if (isset($value['paths'])) {
+        if (array_key_exists('paths', $value)) {
+            $this->_usedProperties['paths'] = true;
             $this->paths = $value['paths'];
             unset($value['paths']);
         }
     
-        if (isset($value['pseudo_localization'])) {
+        if (array_key_exists('pseudo_localization', $value)) {
+            $this->_usedProperties['pseudoLocalization'] = true;
             $this->pseudoLocalization = new \Symfony\Config\Framework\Translator\PseudoLocalizationConfig($value['pseudo_localization']);
             unset($value['pseudo_localization']);
         }
     
-        if (isset($value['providers'])) {
+        if (array_key_exists('providers', $value)) {
+            $this->_usedProperties['providers'] = true;
             $this->providers = array_map(function ($v) { return new \Symfony\Config\Framework\Translator\ProviderConfig($v); }, $value['providers']);
             unset($value['providers']);
         }
@@ -188,31 +208,31 @@ class TranslatorConfig
     public function toArray(): array
     {
         $output = [];
-        if (null !== $this->enabled) {
+        if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (null !== $this->fallbacks) {
+        if (isset($this->_usedProperties['fallbacks'])) {
             $output['fallbacks'] = $this->fallbacks;
         }
-        if (null !== $this->logging) {
+        if (isset($this->_usedProperties['logging'])) {
             $output['logging'] = $this->logging;
         }
-        if (null !== $this->formatter) {
+        if (isset($this->_usedProperties['formatter'])) {
             $output['formatter'] = $this->formatter;
         }
-        if (null !== $this->cacheDir) {
+        if (isset($this->_usedProperties['cacheDir'])) {
             $output['cache_dir'] = $this->cacheDir;
         }
-        if (null !== $this->defaultPath) {
+        if (isset($this->_usedProperties['defaultPath'])) {
             $output['default_path'] = $this->defaultPath;
         }
-        if (null !== $this->paths) {
+        if (isset($this->_usedProperties['paths'])) {
             $output['paths'] = $this->paths;
         }
-        if (null !== $this->pseudoLocalization) {
+        if (isset($this->_usedProperties['pseudoLocalization'])) {
             $output['pseudo_localization'] = $this->pseudoLocalization->toArray();
         }
-        if (null !== $this->providers) {
+        if (isset($this->_usedProperties['providers'])) {
             $output['providers'] = array_map(function ($v) { return $v->toArray(); }, $this->providers);
         }
     
