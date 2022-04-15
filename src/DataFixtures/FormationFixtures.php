@@ -22,7 +22,7 @@ class FormationFixtures extends Fixture
 
             $formation->setTitle($faker->sentence())
                     ->setContent($faker->paragraph(2))
-                    ->setImage("https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+                    ->setImage("https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
             
             $manager->persist($formation);
 
