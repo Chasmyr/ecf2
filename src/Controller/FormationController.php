@@ -294,9 +294,9 @@ class FormationController extends AbstractController
         $formationReverse = array_reverse($formation);
         $formateur = 0;
         $userList = $userRepo->findAll();
-        $userIdStart = array_values($userList)[0]->getId();
         $numberOfCo2 = 0;
         if (!empty($userList)){
+            $userIdStart = array_values($userList)[0]->getId();
             for ($i = $userIdStart; $i <= ($userIdStart + count($userList)); $i++) {
                 if($userRepo->find($i) != null && $userRepo->find($i)->getState() === true ) {
                     $formateur++;
