@@ -29,7 +29,7 @@ final class Version20220406234849 extends AbstractMigration
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE lesson_complete (id INT SERIAL NOT NULL, user_id INT DEFAULT NULL, INDEX IDX_A209A3AA76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
+        $this->addSql('CREATE TABLE lesson_complete (id INT AUTO_INCREMENT NOT NULL, user_id INT DEFAULT NULL, INDEX IDX_A209A3AA76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
         $this->addSql('ALTER TABLE lesson_complete ADD CONSTRAINT FK_A209A3AA76ED395 FOREIGN KEY (user_id) REFERENCES user (id) ON UPDATE NO ACTION ON DELETE NO ACTION');
         $this->addSql('ALTER TABLE lesson ADD complete_lesson_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE lesson ADD CONSTRAINT FK_F87474F339B39493 FOREIGN KEY (complete_lesson_id) REFERENCES lesson_complete (id) ON UPDATE NO ACTION ON DELETE NO ACTION');
