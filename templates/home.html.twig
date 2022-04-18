@@ -56,9 +56,11 @@
         impact digital. Et pourquoi pas délivrer enfin un label officiel pour classer les sites web selon
         leur empreinte numérique.</p>
 </section>
+{% if formationReverse != null %}
 <div class="container-4-title">
     <h2>Les 3 dernières formations</h2>
 </div>
+{% endif %}
 <section class="container-4">
     
     {% for formation in formationReverse|slice(0, 3) %}
