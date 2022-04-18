@@ -35,7 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\Length(min: '7', minMessage: 'Votre mot de passe doit faire minimum 7 caractères')]
     private $password;
 
-    #[ORM\Column(type: 'json')]
+    #[ORM\Column(type: 'json', nullable: true)]
     private $roles = [];
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Formation::class)]
