@@ -33,6 +33,7 @@ return [
     'security_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/connexion']], [], [], []],
     'security_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/deconnexion']], [], [], []],
     'user_acc' => [[], ['_controller' => 'App\\Controller\\SecurityController::userShow'], [], [['text', '/user']], [], [], []],
+    'user_admin_create' => [[], ['_controller' => 'App\\Controller\\SecurityController::userAdminCreate'], [], [['text', '/ecoit/admin/create']], [], [], []],
     'user_admin' => [[], ['_controller' => 'App\\Controller\\SecurityController::userAdmin'], [], [['text', '/admin']], [], [], []],
     'user_admin_validate' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::userValidate'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/validate']], [], [], []],
 ];

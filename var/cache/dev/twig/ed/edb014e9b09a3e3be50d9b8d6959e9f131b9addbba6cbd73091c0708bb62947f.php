@@ -165,37 +165,44 @@ class __TwigTemplate_bc031acb02dfd707c5f9f1adcf8b290a3d4f1c27b3faa415d34aafdbbfd
         impact digital. Et pourquoi pas délivrer enfin un label officiel pour classer les sites web selon
         leur empreinte numérique.</p>
 </section>
-<div class=\"container-4-title\">
+";
+        // line 59
+        if (((isset($context["formationReverse"]) || array_key_exists("formationReverse", $context) ? $context["formationReverse"] : (function () { throw new RuntimeError('Variable "formationReverse" does not exist.', 59, $this->source); })()) != null)) {
+            // line 60
+            echo "<div class=\"container-4-title\">
     <h2>Les 3 dernières formations</h2>
 </div>
-<section class=\"container-4\">
+";
+        }
+        // line 64
+        echo "<section class=\"container-4\">
     
     ";
-        // line 64
+        // line 66
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_slice($this->env, (isset($context["formationReverse"]) || array_key_exists("formationReverse", $context) ? $context["formationReverse"] : (function () { throw new RuntimeError('Variable "formationReverse" does not exist.', 64, $this->source); })()), 0, 3));
+        $context['_seq'] = twig_ensure_traversable(twig_slice($this->env, (isset($context["formationReverse"]) || array_key_exists("formationReverse", $context) ? $context["formationReverse"] : (function () { throw new RuntimeError('Variable "formationReverse" does not exist.', 66, $this->source); })()), 0, 3));
         foreach ($context['_seq'] as $context["_key"] => $context["formation"]) {
-            // line 65
+            // line 67
             echo "
         <article>
             <img src=\"";
-            // line 67
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "image", [], "any", false, false, false, 67), "html", null, true);
+            // line 69
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "image", [], "any", false, false, false, 69), "html", null, true);
             echo "\" alt=\"\">
             <h3 class=\"formation-title\">";
-            // line 68
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 68), "html", null, true);
+            // line 70
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 70), "html", null, true);
             echo "</h3>
             <div class=\"content\">
                 <p>";
-            // line 70
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "content", [], "any", false, false, false, 70), "html", null, true);
+            // line 72
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "content", [], "any", false, false, false, 72), "html", null, true);
             echo "</p>
             </div>
             
             <a href=\"formation/";
-            // line 73
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "id", [], "any", false, false, false, 73), "html", null, true);
+            // line 75
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "id", [], "any", false, false, false, 75), "html", null, true);
             echo "\" class=\"formation-btn\">Je me lance !</a>
         </article>
 
@@ -204,7 +211,7 @@ class __TwigTemplate_bc031acb02dfd707c5f9f1adcf8b290a3d4f1c27b3faa415d34aafdbbfd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 77
+        // line 79
         echo "
 </section>
 ";
@@ -228,7 +235,7 @@ class __TwigTemplate_bc031acb02dfd707c5f9f1adcf8b290a3d4f1c27b3faa415d34aafdbbfd
 
     public function getDebugInfo()
     {
-        return array (  208 => 77,  198 => 73,  192 => 70,  187 => 68,  183 => 67,  179 => 65,  175 => 64,  140 => 32,  132 => 27,  124 => 22,  110 => 10,  100 => 9,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  215 => 79,  205 => 75,  199 => 72,  194 => 70,  190 => 69,  186 => 67,  182 => 66,  178 => 64,  172 => 60,  170 => 59,  140 => 32,  132 => 27,  124 => 22,  110 => 10,  100 => 9,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -291,9 +298,11 @@ class __TwigTemplate_bc031acb02dfd707c5f9f1adcf8b290a3d4f1c27b3faa415d34aafdbbfd
         impact digital. Et pourquoi pas délivrer enfin un label officiel pour classer les sites web selon
         leur empreinte numérique.</p>
 </section>
+{% if formationReverse != null %}
 <div class=\"container-4-title\">
     <h2>Les 3 dernières formations</h2>
 </div>
+{% endif %}
 <section class=\"container-4\">
     
     {% for formation in formationReverse|slice(0, 3) %}

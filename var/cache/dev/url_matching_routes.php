@@ -22,6 +22,7 @@ return [
         '/connexion' => [[['_route' => 'security_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/deconnexion' => [[['_route' => 'security_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/user' => [[['_route' => 'user_acc', '_controller' => 'App\\Controller\\SecurityController::userShow'], null, null, null, false, false, null]],
+        '/ecoit/admin/create' => [[['_route' => 'user_admin_create', '_controller' => 'App\\Controller\\SecurityController::userAdminCreate'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'user_admin', '_controller' => 'App\\Controller\\SecurityController::userAdmin'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

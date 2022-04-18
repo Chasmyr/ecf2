@@ -88,6 +88,29 @@ class SecurityController extends AbstractController
             'formations' => $formations
         ]);
     }
+    // create admin user without fixtures
+    #[Route('/ecoit/admin/create', name: 'user_admin_create')]
+    public function userAdminCreate(UserRepository $userRepo, EntityManagerInterface $manager) {
+        $userList = $userRepo->findAll();
+        $isAdmin = 0;
+        for($i=0; $i < count($userList); $i++) {
+            if($userList[$i]->getRoles() === ['ROLE_ADMIN']) {
+                $isAdmin++;
+            }
+        }
+        if ($isAdmin === 0) {
+            $admin = new User();
+            $admin->setEmail('admin@ecoit.fr');
+            $admin->setUsername('admin');
+            $admin->setRoles(['ROLE_ADMIN']);
+            $admin->setPassword(password_hash('root88root', PASSWORD_BCRYPT));
+            $manager->persist($admin);
+            $manager->flush();
+            return $this->redirectToRoute('user_admin');
+        } else {
+            return $this->redirectToRoute('home');
+        }
+    }
 
     #[Route('/admin', name: 'user_admin')]
     public function userAdmin(UserRepository $userRepo) {
