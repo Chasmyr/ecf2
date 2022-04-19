@@ -40,6 +40,7 @@ php -S localhost:8000 -t public
 on your computer, then do:
 
 ```bash
+# make sure to be in ecf2/ folder
 
 # login to your Heroku account
 heroku login
