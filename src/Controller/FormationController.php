@@ -45,7 +45,7 @@ class FormationController extends AbstractController
         $form->handleRequest($request);
 
         $formations = $paginator->paginate(
-            $formationRepo->findSearch($data),
+            array_reverse($formationRepo->findSearch($data)),
             $request->get('page', 1),
             9
         );

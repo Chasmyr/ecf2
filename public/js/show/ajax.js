@@ -5,10 +5,10 @@ function onClickCompleteLesson(event) {
     
     axios.get(url).then(function(response) {
         // mettre le code ici pour la bar de progression de la formation
-        const progress = response.data.progress;
+        const progress = Math.round(response.data.progress);
         const progressContent = document.querySelector('.progress-content');
         const progressSpan = document.querySelector('.progress-number');
-        progressSpan.textContent = Math.round(progress) + '%';
+        progressSpan.textContent = progress + '%';
         progressContent.style.width = `${progress}%`;
     }).catch(function(error) {
         if(error.response.status === 403) {
