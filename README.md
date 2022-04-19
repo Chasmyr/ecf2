@@ -49,7 +49,7 @@ heroku create
 
 # add the databse, you can change version by setting --version= 
 # but the project is running with MySQL 8.0 which is the default version of JawsDB
-heroku addons:create jawsdb -a name-of-your-app
+heroku addons:create jawsdb
 
 # get the datbase url : mysql://username:password@hostname:port/default_schema
 # use it for the next command
