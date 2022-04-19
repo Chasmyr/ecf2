@@ -8,7 +8,7 @@ function onClickCompleteLesson(event) {
         const progress = Math.round(response.data.progress);
         const progressContent = document.querySelector('.progress-content');
         const progressSpan = document.querySelector('.progress-number');
-        progressSpan.textContent = progress + '%';
+        progressSpan.textContent = progress.toString() + '%';
         progressContent.style.width = `${progress}%`;
     }).catch(function(error) {
         if(error.response.status === 403) {
