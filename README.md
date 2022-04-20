@@ -8,7 +8,7 @@ ECF Studi june 2022
 - Composer 
 - Symfony 6.0.6
 
-## To deploy it on ur computer
+## To deploy it on your computer
 ```bash
 
 # clone the repository
