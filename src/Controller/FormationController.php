@@ -357,6 +357,7 @@ class FormationController extends AbstractController
             $progress = ($completeLessons + 1) * (100/count($lessonFinal));
             dump($completeLessons);
         }
+        
         return $this->json(['code' => 200, 
         'message' => 'leçon ajoutée', 
         'nombre de leçons complete' => $completeLessons, 
