@@ -73,7 +73,7 @@ git push heroku main
 [Documentation JawsDB](https://devcenter.heroku.com/articles/jawsdb)
 
 ## Current issue
-I am working on an issue which is my ajax dont works properly on server
+I am working on an issue which is that my ajax dont works properly on server
 
 When an user progress through a formation i want to get :
 
