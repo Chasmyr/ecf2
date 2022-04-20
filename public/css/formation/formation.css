@@ -171,7 +171,7 @@ body {
 }
 
 @media screen and (max-width: 1600px) {
-  .formation-title {
+  .wrapper article .formation-title {
     max-width: 340px;
   }
 }
@@ -183,7 +183,7 @@ body {
   .wrapper {
     margin: 50px 100px 20px 100px;
   }
-  .wrapper .formation-title {
+  .wrapper article .formation-title {
     max-width: 320px;
   }
   .search-bar {
@@ -201,7 +201,7 @@ body {
   .wrapper {
     margin: 50px 70px 20px 70px;
   }
-  .wrapper .formation-title {
+  .wrapper article .formation-title {
     max-width: 310px;
   }
   .search-bar {
@@ -226,7 +226,7 @@ body {
   .wrapper {
     margin: 50px 30px 20px 30px;
   }
-  .wrapper .formation-title {
+  .wrapper article .formation-title {
     max-width: 250px;
   }
   .search-bar {
@@ -285,7 +285,7 @@ body {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
-  .wrapper .formation-title {
+  .wrapper article .formation-title {
     width: 300px;
   }
   .wrapper article img {
