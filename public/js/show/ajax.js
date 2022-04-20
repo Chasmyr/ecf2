@@ -5,7 +5,8 @@ function onClickCompleteLesson(event) {
     
     axios.get(url).then(function(response) {
         // mettre le code ici pour la bar de progression de la formation
-        const progress = Math.round(response.data.progress).toString();
+        const progress = Math.round(response.data.progress);
+        console.log(response);
         const progressContent = document.querySelector('.progress-content');
         const progressSpan = document.querySelector('.progress-number');
         progressSpan.textContent = progress + '%';
