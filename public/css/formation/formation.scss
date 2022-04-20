@@ -43,7 +43,7 @@ body {
             p {
                 text-align: center;
                 width: 300px;
-                height: 120px;
+                height: 160px;
             }
         }
         .formation-btn {
@@ -132,12 +132,20 @@ body {
 
     }
 }
+@media screen and (max-width: 1600px) {
+    .formation-title {
+        max-width: 340px;
+    }
+}
 @media screen and (max-width: 1440px) {
     .head {
         margin: 50px 100px 20px 100px;
     }
     .wrapper {
         margin: 50px 100px 20px 100px;
+        .formation-title {
+            max-width: 320px;
+        }
     }
     .search-bar {
         margin-right: 100px;
@@ -154,6 +162,9 @@ body {
     }
     .wrapper {
         margin: 50px 70px 20px 70px;
+        .formation-title {
+            max-width: 310px;
+        }
     }
     .search-bar {
         margin-right: 70px;
@@ -175,6 +186,9 @@ body {
     }
     .wrapper {
         margin: 50px 30px 20px 30px;
+        .formation-title {
+            max-width: 250px;
+        }
     }
     .search-bar {
         margin-right: 30px;
@@ -242,6 +256,9 @@ body {
 @media screen and (max-width: 576px) {
     .wrapper {
         grid-template-columns: 1fr;
+        .formation-title {
+            width: 300px;
+        }
         article {
             img {
                 width: 350px;

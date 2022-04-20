@@ -68,7 +68,7 @@ body {
 .wrapper article .content p {
   text-align: center;
   width: 300px;
-  height: 120px;
+  height: 160px;
 }
 
 .wrapper article .formation-btn {
@@ -170,12 +170,21 @@ body {
   color: white;
 }
 
+@media screen and (max-width: 1600px) {
+  .formation-title {
+    max-width: 340px;
+  }
+}
+
 @media screen and (max-width: 1440px) {
   .head {
     margin: 50px 100px 20px 100px;
   }
   .wrapper {
     margin: 50px 100px 20px 100px;
+  }
+  .wrapper .formation-title {
+    max-width: 320px;
   }
   .search-bar {
     margin-right: 100px;
@@ -191,6 +200,9 @@ body {
   }
   .wrapper {
     margin: 50px 70px 20px 70px;
+  }
+  .wrapper .formation-title {
+    max-width: 310px;
   }
   .search-bar {
     margin-right: 70px;
@@ -213,6 +225,9 @@ body {
   }
   .wrapper {
     margin: 50px 30px 20px 30px;
+  }
+  .wrapper .formation-title {
+    max-width: 250px;
   }
   .search-bar {
     margin-right: 30px;
@@ -269,6 +284,9 @@ body {
   .wrapper {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+  .wrapper .formation-title {
+    width: 300px;
   }
   .wrapper article img {
     width: 350px;
