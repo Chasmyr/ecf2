@@ -320,7 +320,7 @@ class FormationController extends AbstractController
 
     //fonction pour terminer une lesson et progress bar
     #[Route('/lesson/{id}', name: 'lesson_complete')]
-    public function completeLesson(Lesson $lesson, EntityManagerInterface $manager, LessonRepository $lessonRepo): Response {
+    public function completeLesson(Lesson $lesson, EntityManagerInterface $manager, LessonRepository $lessonRepo, Request $request): Response {
         $user = $this->getUser();
 
         if(!$user) {
@@ -357,11 +357,13 @@ class FormationController extends AbstractController
             $progress = ($completeLessons + 1) * (100/count($lessonFinal));
             dump($completeLessons);
         }
-        
-        return $this->json(['code' => 200, 
-        'message' => 'leçon ajoutée', 
-        'nombre de leçons complete' => $completeLessons, 
-        'progress' => $progress], 200);
+        if ($request->isXmlHttpRequest()) {
+
+            return $this->json(['code' => 200, 
+            'message' => 'leçon ajoutée', 
+            'nombre de leçons complete' => $completeLessons, 
+            'progress' => $progress], 200);
+        }
     }
 
     // fonction pour terminer une formation
