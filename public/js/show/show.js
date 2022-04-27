@@ -137,4 +137,3 @@ for (let i = 0; i < lessonMenu.length; i++)
         lessonBack.style.display = 'none';
     }
 }
-

@@ -16,12 +16,9 @@ async function findPercent(el, bar, url) {
             'X-Requested-With': 'XMLHttpRequest'
         }
     });
-    
-    //const data = await response.json();
-    //console.log(response)
     if (response.status >= 200 & response.status < 300) {
         const data = await response.json();
-        console.log(data.progress);
+        console.log(data);
         el.innerHTML = Math.round(data.progress) + '%';
         bar.style.width = `${data.progress}%`;
     } else {
