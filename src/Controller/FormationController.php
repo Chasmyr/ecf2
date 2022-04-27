@@ -323,9 +323,6 @@ class FormationController extends AbstractController
     public function completeLesson(Lesson $lesson, EntityManagerInterface $manager, LessonRepository $lessonRepo, Request $request): Response {
         $user = $this->getUser();
 
-        if(!$user) {
-            return $this->json(['code' => 403, 'error' => 'pas d\'utilisateur'], 403);
-        }
         $formation = $lessonRepo->find($lesson->getId())->getSection()->getFormation();
         $lessonList= [];
         for ($i =0; $i < count($formation->getSections()); $i++) {
@@ -355,13 +352,11 @@ class FormationController extends AbstractController
             $progress = 100;
         } else {
             $progress = ($completeLessons + 1) * (100/count($lessonFinal));
-            dump($completeLessons);
         }
         if ($request->isXmlHttpRequest()) {
 
             return $this->json(['code' => 200, 
-            'message' => 'leçon ajoutée', 
-            'nombre de leçons complete' => $completeLessons, 
+            'message' => 'leçon ajoutée',
             'progress' => $progress], 200);
         }
     }
