@@ -73,17 +73,7 @@ git push heroku main
 [Documentation JawsDB](https://devcenter.heroku.com/articles/jawsdb)
 
 ## Current issue
-I am working on an issue which is that my ajax dont works properly on server
 
-When an user progress through a formation i want to get :
-
-![alt text](https://github.com/Chasmyr/ecf2/blob/main/screenshot/sc1.png "Screenshot 1")
-
-But i have :
-
-![alt text](https://github.com/Chasmyr/ecf2/blob/main/screenshot/sc2.png "Screenshot 2")
-
-So if you want to test the application with all the features, please install it on your computer
 
 ## Author
 [Twitter](https://twitter.com/Chasmyr__)
