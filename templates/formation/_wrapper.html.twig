@@ -6,8 +6,12 @@
         <div class="content">
             <p>{{ formation.content }}</p>
         </div>
-            
+        {% if app.user and user.roles != ['ROLE_USER'] %}
+        <a href="#" class="formation-btn access-denied">Je me lance !</a>
+        {% else %}
         <a href="formation/{{ formation.id }}" class="formation-btn">Je me lance !</a>
+        {% endif %}
     </article>
 
 {% endfor %}
+

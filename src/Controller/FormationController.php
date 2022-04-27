@@ -58,7 +58,8 @@ class FormationController extends AbstractController
         
         return $this->render('formation/index.html.twig', [
             'formations' => $formations,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 

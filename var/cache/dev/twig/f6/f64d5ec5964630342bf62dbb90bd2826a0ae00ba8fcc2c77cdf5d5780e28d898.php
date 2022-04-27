@@ -152,6 +152,16 @@ class __TwigTemplate_1d12bddbc11db98b5bae7e988814ab144cb885b6cf42191f2aee52efefc
 </div>
 
 <script src=\"/js/formation/ajax.js\"></script>
+<script>
+    let denied = document.querySelectorAll('.access-denied');
+    for (let i =0; i < denied.length; i++){
+        denied[i].addEventListener('click', (e) => {
+            e.preventDefault();
+            window.alert('Vous devez être connecté en tant qu\\'apprenant pour accéder aux formations.');
+        });
+    }
+    
+</script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -217,6 +227,16 @@ class __TwigTemplate_1d12bddbc11db98b5bae7e988814ab144cb885b6cf42191f2aee52efefc
 </div>
 
 <script src=\"/js/formation/ajax.js\"></script>
+<script>
+    let denied = document.querySelectorAll('.access-denied');
+    for (let i =0; i < denied.length; i++){
+        denied[i].addEventListener('click', (e) => {
+            e.preventDefault();
+            window.alert('Vous devez être connecté en tant qu\\'apprenant pour accéder aux formations.');
+        });
+    }
+    
+</script>
 {% endblock %}
 ", "formation/index.html.twig", "E:\\ecf2\\templates\\formation\\index.html.twig");
     }

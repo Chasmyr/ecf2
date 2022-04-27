@@ -37,4 +37,14 @@
 </div>
 
 <script src="/js/formation/ajax.js"></script>
+<script>
+    let denied = document.querySelectorAll('.access-denied');
+    for (let i =0; i < denied.length; i++){
+        denied[i].addEventListener('click', (e) => {
+            e.preventDefault();
+            window.alert('Vous devez être connecté en tant qu\'apprenant pour accéder aux formations.');
+        });
+    }
+    
+</script>
 {% endblock %}

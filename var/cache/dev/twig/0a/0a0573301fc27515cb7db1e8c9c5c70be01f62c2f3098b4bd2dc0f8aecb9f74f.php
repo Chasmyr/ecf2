@@ -60,18 +60,30 @@ class __TwigTemplate_6d768d7f7f0a5f9f4a6f58b8b04ef57625c0090481fc07c2fc79c04014c
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "content", [], "any", false, false, false, 7), "html", null, true);
             echo "</p>
         </div>
-            
-        <a href=\"formation/";
-            // line 10
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "id", [], "any", false, false, false, 10), "html", null, true);
-            echo "\" class=\"formation-btn\">Je me lance !</a>
-    </article>
+        ";
+            // line 9
+            if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 9, $this->source); })()), "user", [], "any", false, false, false, 9) && (twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 9, $this->source); })()), "roles", [], "any", false, false, false, 9) != [0 => "ROLE_USER"]))) {
+                // line 10
+                echo "        <a href=\"#\" class=\"formation-btn access-denied\">Je me lance !</a>
+        ";
+            } else {
+                // line 12
+                echo "        <a href=\"formation/";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "id", [], "any", false, false, false, 12), "html", null, true);
+                echo "\" class=\"formation-btn\">Je me lance !</a>
+        ";
+            }
+            // line 14
+            echo "    </article>
 
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
+        echo "
+";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -92,7 +104,7 @@ class __TwigTemplate_6d768d7f7f0a5f9f4a6f58b8b04ef57625c0090481fc07c2fc79c04014c
 
     public function getDebugInfo()
     {
-        return array (  66 => 10,  60 => 7,  55 => 5,  51 => 4,  47 => 2,  43 => 1,);
+        return array (  85 => 17,  77 => 14,  71 => 12,  67 => 10,  65 => 9,  60 => 7,  55 => 5,  51 => 4,  47 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -105,11 +117,15 @@ class __TwigTemplate_6d768d7f7f0a5f9f4a6f58b8b04ef57625c0090481fc07c2fc79c04014c
         <div class=\"content\">
             <p>{{ formation.content }}</p>
         </div>
-            
+        {% if app.user and user.roles != ['ROLE_USER'] %}
+        <a href=\"#\" class=\"formation-btn access-denied\">Je me lance !</a>
+        {% else %}
         <a href=\"formation/{{ formation.id }}\" class=\"formation-btn\">Je me lance !</a>
+        {% endif %}
     </article>
 
 {% endfor %}
+
 ", "formation/_wrapper.html.twig", "E:\\ecf2\\templates\\formation\\_wrapper.html.twig");
     }
 }
