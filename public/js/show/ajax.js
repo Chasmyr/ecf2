@@ -17,7 +17,7 @@ async function findPercent(el, bar, url) {
         }
     });
     if (response.status >= 200 & response.status < 300) {
-        const data = await response.json();
+        const data = await response.json().replace( /(<([^>]+)>)/ig, '');
         console.log(data);
         el.innerHTML = Math.round(data.progress) + '%';
         bar.style.width = `${data.progress}%`;
