@@ -20,6 +20,8 @@ cd ecf2
 # install dependencies
 composer install
 
+change the database_url in the .env
+
 # create database
 php bin/console doctrine:database:create
 
