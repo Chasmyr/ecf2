@@ -6,6 +6,7 @@ use App\Entity\Lesson;
 use App\Entity\Section;
 use App\Entity\Formation;
 use PHPUnit\Framework\TestCase;
+use Doctrine\ORM\EntityManagerInterface;
 
 
 class testList extends TestCase
@@ -61,4 +62,5 @@ class testList extends TestCase
         $annexe->setPath("https://music.youtube.com/watch?v=AirWJtmT3dg&list=RDAMVMDr7UccPpF5w");
         $this->assertSame("annexe 1", $annexe->getTitle());
     }
+
 }
