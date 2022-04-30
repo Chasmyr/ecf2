@@ -94,6 +94,8 @@ return [[
 '[C]App%5CController%5CSecurityController%23logout' => 1,
 'App%5CController%5CSecurityController%23userShow' => 0,
 '[C]App%5CController%5CSecurityController%23userShow' => 1,
+'App%5CController%5CSecurityController%23userAdminCreate' => 0,
+'[C]App%5CController%5CSecurityController%23userAdminCreate' => 1,
 'App%5CController%5CSecurityController%23userAdmin' => 0,
 '[C]App%5CController%5CSecurityController%23userAdmin' => 1,
 'App%5CController%5CSecurityController%23userValidate' => 0,
@@ -870,6 +872,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1650289446,
+1 => 1651309304,
 
 ]];
